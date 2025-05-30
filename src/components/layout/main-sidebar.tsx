@@ -1,9 +1,10 @@
+
 'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { usePersona } from '@/contexts/PersonaContext';
-import { personasConfig } from '@/config/personas';
+import type { PersonaName } from '@/types';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import {
@@ -12,21 +13,69 @@ import {
   Lightbulb,
   Mail,
   Users,
-  HomeIcon,
+  Disc3,
+  Dice5,
+  Utensils,
+  Martini,
+  Shield,
+  Basketball as BasketballIcon, // Renamed to avoid conflict with component name
+  Image as ImageIcon, // Renamed to avoid conflict
+  BookOpenText,
+  type LucideIcon,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const navItems = [
-  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+interface NavItem {
+  href: string;
+  label: string;
+  icon: LucideIcon;
+}
+
+const baseNavItems: NavItem[] = [
+  { href: '/dashboard', label: 'About', icon: LayoutDashboard },
+];
+
+const jamalNavItems: NavItem[] = [
+  ...baseNavItems,
   { href: '/credentials', label: 'Credentials', icon: Award },
   { href: '/projects', label: 'Projects', icon: Lightbulb },
   { href: '/contact', label: 'Contact', icon: Mail },
 ];
 
+const jamallinNavItems: NavItem[] = [
+  ...baseNavItems,
+  { href: '/disc-golf', label: 'Disc Golf', icon: Disc3 },
+  { href: '/board-games', label: 'Board Games', icon: Dice5 },
+  { href: '/food', label: 'Food', icon: Utensils },
+  { href: '/mixology', label: 'Mixology', icon: Martini },
+  { href: '/martial-arts', label: 'Martial Arts', icon: Shield },
+  { href: '/basketball', label: 'Basketball', icon: BasketballIcon },
+];
+
+const uncleJNavItems: NavItem[] = [
+  ...baseNavItems,
+  { href: '/photo-gallery', label: 'Photo Gallery', icon: ImageIcon },
+  { href: '/lessons', label: 'Lessons', icon: BookOpenText },
+];
+
+const getNavItemsForPersona = (persona: PersonaName): NavItem[] => {
+  switch (persona) {
+    case 'Jamal':
+      return jamalNavItems;
+    case 'Jamallin':
+      return jamallinNavItems;
+    case 'Uncle J':
+      return uncleJNavItems;
+    default:
+      return baseNavItems;
+  }
+};
+
 export function MainSidebar({ className }: { className?: string }) {
   const pathname = usePathname();
   const { persona, getPersonaConfig } = usePersona();
   const personaDetails = getPersonaConfig(persona);
+  const currentNavItems = getNavItemsForPersona(persona);
 
   return (
     <aside className={cn("h-full border-r flex flex-col bg-card", className)}>
@@ -39,7 +88,7 @@ export function MainSidebar({ className }: { className?: string }) {
       </div>
       <ScrollArea className="flex-1">
         <nav className="p-4 space-y-2">
-          {navItems.map((item) => (
+          {currentNavItems.map((item) => (
             <Button
               key={item.label}
               asChild
