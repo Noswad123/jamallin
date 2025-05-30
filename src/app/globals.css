@@ -2,12 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer base {
   :root {
+    /* Default/Fallback values (primarily for structure, persona will override) */
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -33,16 +30,15 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Font variables (will be assigned in layout.tsx) */
+    /* --font-jamal defined by geistSans.variable */
+    /* --font-jamallin defined by poppins.variable */
+    /* --font-unclej defined by nunito.variable */
   }
+
   .dark {
+    /* Dark mode defaults, persona overrides will also need dark versions if desired */
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
@@ -67,14 +63,117 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+  }
+
+  /* Jamal Theme */
+  html[data-persona="Jamal"] {
+    --background: 0 0% 94%; /* #F0F0F0 light grey */
+    --foreground: 240 75% 10%; /* Dark navy text */
+    
+    --primary: 207 99% 58%;    /* #2E9AFE professional blue */
+    --primary-foreground: 0 0% 100%; /* White */
+    
+    --accent: 240 75% 16%;      /* #0B0B45 deep navy */
+    --accent-foreground: 0 0% 100%; /* White */
+    
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 240 75% 10%;
+    
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 240 75% 10%;
+    
+    --secondary: 207 50% 90%; /* Lighter blue */
+    --secondary-foreground: 207 99% 30%; /* Darker blue */
+    
+    --muted: 0 0% 85%; /* Light grey */
+    --muted-foreground: 0 0% 45.1%; /* Medium grey text */
+    
+    --border: 0 0% 80%; /* Grey border */
+    --input: 0 0% 80%;  /* Grey input border */
+    --ring: 207 99% 58%; /* Primary blue for focus rings */
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 207 99% 58%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 207 50% 90%;
+    --sidebar-accent-foreground: 207 99% 30%;
+    --sidebar-border: 0 0% 80%;
+    --sidebar-ring: 207 99% 58%;
+  }
+
+  /* Jamallin Theme */
+  html[data-persona="Jamallin"] {
+    --background: 54 100% 90%; /* #FFFACD light yellow */
+    --foreground: 36 100% 20%; /* Dark orange/brown text */
+    
+    --primary: 36 100% 63%;  /* #FFB347 fun orange */
+    --primary-foreground: 36 100% 10%; /* Dark brown/black */
+    
+    --accent: 330 100% 71%; /* #FF69B4 bright pink */
+    --accent-foreground: 0 0% 0%; /* Black */
+    
+    --card: 50 100% 95%; /* Lighter yellow */
+    --card-foreground: 36 100% 20%;
+    
+    --popover: 50 100% 95%; /* Lighter yellow */
+    --popover-foreground: 36 100% 20%;
+    
+    --secondary: 36 100% 80%; /* Lighter orange */
+    --secondary-foreground: 36 100% 30%; /* Darker orange */
+    
+    --muted: 54 50% 85%; /* Muted yellow */
+    --muted-foreground: 54 50% 40%; /* Darker muted yellow text */
+    
+    --border: 36 50% 70%; /* Orange-tinted border */
+    --input: 36 50% 70%;  /* Orange-tinted input border */
+    --ring: 36 100% 63%; /* Primary orange for focus rings */
+
+    --sidebar-background: 54 100% 85%; /* Slightly darker yellow for sidebar */
+    --sidebar-foreground: 36 100% 20%;
+    --sidebar-primary: 36 100% 63%;
+    --sidebar-primary-foreground: 36 100% 10%;
+    --sidebar-accent: 330 100% 80%; /* Lighter pink for sidebar accent */
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 36 50% 70%;
+    --sidebar-ring: 36 100% 63%;
+  }
+
+  /* Uncle J Theme */
+  html[data-persona="Uncle J"] {
+    --background: 190 67% 93%; /* #E0F7FA gentle pastel blue */
+    --foreground: 150 56% 20%; /* Dark green text */
+
+    --primary: 150 56% 70%; /* #82E0AA playful green */
+    --primary-foreground: 150 56% 10%; /* Dark green/black */
+
+    --accent: 240 67% 94%; /* #E6E6FA soft lavender */
+    --accent-foreground: 240 67% 30%; /* Darker lavender text */
+
+    --card: 190 100% 97%; /* Lighter pastel blue */
+    --card-foreground: 150 56% 20%;
+
+    --popover: 190 100% 97%; /* Lighter pastel blue */
+    --popover-foreground: 150 56% 20%;
+
+    --secondary: 150 60% 85%; /* Lighter green */
+    --secondary-foreground: 150 56% 30%; /* Darker green */
+
+    --muted: 190 30% 90%; /* Muted pastel blue */
+    --muted-foreground: 190 30% 50%; /* Medium muted blue text */
+
+    --border: 150 30% 80%; /* Green-tinted border */
+    --input: 150 30% 80%;  /* Green-tinted input border */
+    --ring: 150 56% 70%; /* Primary green for focus rings */
+
+    --sidebar-background: 190 67% 90%; /* Slightly darker blue for sidebar */
+    --sidebar-foreground: 150 56% 20%;
+    --sidebar-primary: 150 56% 70%;
+    --sidebar-primary-foreground: 150 56% 10%;
+    --sidebar-accent: 240 67% 90%; /* Lighter lavender */
+    --sidebar-accent-foreground: 240 67% 30%;
+    --sidebar-border: 150 30% 80%;
+    --sidebar-ring: 150 56% 70%;
   }
 }
 
@@ -84,5 +183,29 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    /* Font family will be applied by PersonaContext based on persona */
   }
+  /* Font classes to be applied to body by PersonaContext */
+  .font-jamal { font-family: var(--font-geist-sans); }
+  .font-jamallin { font-family: var(--font-poppins); }
+  .font-unclej { font-family: var(--font-nunito); }
+}
+
+/* Animation styles (examples) */
+html[data-persona="Jamal"] .animated-element {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+html[data-persona="Jamallin"] .animated-element {
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Energetic transition */
+}
+html[data-persona="Uncle J"] .animated-element {
+  transition: transform 0.4s ease-in-out; /* Bouncy animation */
+}
+html[data-persona="Uncle J"] .bouncy:hover {
+  animation: bounce 0.5s ease infinite alternate;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
 }
