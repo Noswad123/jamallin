@@ -18,7 +18,7 @@ import {
   Utensils,
   Martini,
   Shield,
-  Basketball as BasketballIcon, // Renamed to avoid conflict with component name
+  Dribbble as BasketballIcon, // Renamed to avoid conflict with component name & using Dribbble as placeholder
   Image as ImageIcon, // Renamed to avoid conflict
   BookOpenText,
   type LucideIcon,
