@@ -22,8 +22,8 @@ import {
   Dice5,
   Utensils,
   Martini,
-  Shield,
-  Dribbble as BasketballIcon,
+  Plane, // Added for Aviation
+  Dumbbell, // Added for Exercise
   Image as ImageIcon,
   BookOpenText,
   PanelLeft,
@@ -57,8 +57,8 @@ const jamallinNavItems: NavItem[] = [
   { href: '/board-games', label: 'Board Games', icon: Dice5 },
   { href: '/food', label: 'Food', icon: Utensils },
   { href: '/mixology', label: 'Mixology', icon: Martini },
-  { href: '/martial-arts', label: 'Martial Arts', icon: Shield },
-  { href: '/basketball', label: 'Basketball', icon: BasketballIcon },
+  { href: '/aviation', label: 'Aviation', icon: Plane },
+  { href: '/exercise', label: 'Exercise', icon: Dumbbell },
 ];
 
 const uncleJNavItems: NavItem[] = [

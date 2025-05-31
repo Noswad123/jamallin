@@ -2,36 +2,36 @@
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Basketball as BasketballIcon } from 'lucide-react';
+import { Plane } from 'lucide-react';
 import Image from 'next/image';
 
-export default function BasketballPage() {
+export default function AviationPage() {
   return (
     <div className="space-y-8">
       <Card className="shadow-lg animated-element">
         <CardHeader>
           <div className="flex items-center gap-3 mb-2">
-            <BasketballIcon className="w-8 h-8 text-primary" />
-            <CardTitle className="text-3xl font-bold">Hoops & Highlights</CardTitle>
+            <Plane className="w-8 h-8 text-primary" />
+            <CardTitle className="text-3xl font-bold">Up in the Clouds</CardTitle>
           </div>
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-lg text-foreground">
-            Nothing but net! From pick-up games at the local park to following the pros, basketball is a passion.
-            The fast pace, teamwork, and thrill of a game-winning shot are what I love about it.
+            From small Cessnas to jumbo jets, I'm fascinated by everything that flies.
+            The freedom of the skies and the marvel of engineering make aviation a true passion.
           </p>
           <div className="flex justify-center">
             <Image
               src="https://placehold.co/600x400.png"
-              alt="Basketball game action"
+              alt="Airplane in flight"
               width={600}
               height={400}
               className="rounded-lg shadow-md"
-              data-ai-hint="basketball court"
+              data-ai-hint="airplane sky"
             />
           </div>
           <p className="text-muted-foreground">
-            Favorite Team: (e.g., Los Angeles Lakers). Favorite Player: (e.g., LeBron James).
+            Dream Aircraft: Cirrus SR22. Favorite Aviation Movie: Top Gun.
           </p>
         </CardContent>
       </Card>
