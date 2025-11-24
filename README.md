@@ -14,3 +14,8 @@ To get started, take a look at src/app/page.tsx.
 "https://www.linkedin.com/in/jamal-dawson/"
 "https://github.com/Noswad123"
 "https://www.instagram.com/noswadian/?utm_source=ig_embed&amp;utm_campaign=loading"
+
+npm create svelte@latest frontend
+cd frontend
+npm install
+npm run dev -- --open
