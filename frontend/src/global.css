@@ -1,0 +1,189 @@
+:root {
+  /* RAW TOKENS (HEX COLORS, PIXELS, REMS, ETC.) */
+
+  --near-black: #11111b; /* for text on light/pastel backgrounds */
+
+  --grey-900: #1e1e2e; /* very dark grey / indigo */
+  --grey-800: #313244;
+  --grey-700: #45475a;
+
+  --soft-grey: #a6adc8; /* muted text */
+  --offwhite:  #cdd6f4; /* main text */
+
+  --powder-blue:        #a6d8eb;
+  --powder-blue-bright: #89dceb;
+
+  --pastel-green:    #a6e3a1;
+  --pastel-yellow:   #f9e2af;
+  --pastel-lavender: #b4befe;
+  --pastel-pink:     #f5c2e7;
+  --pastel-red:      #f38ba8;
+
+  /* --- RAW SPACING (PIXELS) --- */
+  --space-0: 0;
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+
+  /* --- RAW FONT SIZES (REMS) --- */
+  --font-10: 0.625rem; /* 10px */
+  --font-12: 0.75rem;  /* 12px */
+  --font-14: 0.875rem; /* 14px */
+  --font-16: 1rem;     /* 16px */
+  --font-18: 1.125rem; /* 18px */
+  --font-20: 1.25rem;  /* 20px */
+  --font-24: 1.5rem;   /* 24px */
+  --font-32: 2rem;     /* 32px */
+
+  /* --- RAW RADII --- */
+  --radius-0: 0;
+  --radius-1: 4px;
+  --radius-2: 8px;
+  --radius-3: 999px;
+
+  /* --- RAW LINE HEIGHTS --- */
+  --lh-tight: 1.2;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.8;
+
+  /* =========================================================
+     PALETTE LAYER (ABSTRACT UI ROLES)
+     ========================================================= */
+
+  /* BACKGROUND SCALE */
+  --bg-0: var(--grey-900); /* page body */
+  --bg-1: var(--grey-800); /* surfaces/cards */
+  --bg-2: var(--grey-700); /* overlays/inputs */
+
+
+  /* ACCENT */
+  --accent-0: var(--powder-blue);
+  --accent-1: var(--powder-blue-bright);
+
+  --space-xxs: var(--space-1); /* 2px */
+  --space-xs:  var(--space-2); /* 4px */
+  --space-sm:  var(--space-3); /* 8px */
+  --space-md:  var(--space-5); /* 16px */
+  --space-lg:  var(--space-7); /* 32px */
+  --space-xl:  var(--space-8); /* 40px */
+
+  --font-xs:   var(--font-12);
+  --font-sm:   var(--font-14);
+  --font-md:   var(--font-16);
+  --font-lg:   var(--font-20);
+  --font-xl:   var(--font-24);
+  --font-xxl:  var(--font-32);
+
+  /* =========================================================
+     SEMANTIC TOKENS (USED IN COMPONENTS)
+     ========================================================= */
+
+  --bg-body:    var(--bg-0);
+  --bg-surface: var(--bg-1);
+  --bg-overlay: var(--bg-2);
+
+  /* TEXT */
+  --text-main:  var(--offwhite);
+  --text-muted: var(--soft-grey);
+
+  /* ACCENTS */
+  --accent:       var(--accent-0);
+  --accent-hover: var(--accent-1);
+
+  /* BORDERS */
+  --border-dim: var(--grey-700);
+
+  /* RADIUS (GLOBAL DEFAULTS) */
+  --radius-sm:   var(--radius-1);
+  --radius-md:   var(--radius-2);
+  --radius-pill: var(--radius-3);
+  --radius:      var(--radius-md);
+
+  /* TYPOGRAPHY: SEMANTIC FONT SIZES */
+  --fs-body:       var(--font-md);
+  --fs-body-small: var(--font-sm);
+  --fs-tag:        var(--font-xs);
+  --fs-button:     var(--font-sm);
+  --fs-h1:         var(--font-xxl);
+  --fs-h2:         var(--font-xl);
+  --fs-h3:         var(--font-lg);
+  --fs-h4:         var(--font-md);
+  --fs-card-title: var(--font-lg);
+
+  /* TYPOGRAPHY: FONTS & LINE HEIGHTS */
+  --font-body: system-ui, -apple-system, sans-serif;
+  --font-mono: 'Menlo', 'Consolas', monospace;
+
+  --lh-body:var(--lh-normal);
+  --lh-heading:var(--lh-tight);
+
+  /* SPACING: SEMANTIC TOKENS */
+  --space-page-gutter:    var(--space-lg);
+  --space-section-y:      var(--space-xl);
+  --space-card-padding:   var(--space-md);
+  --space-card-gap:       var(--space-sm);
+  --space-stack-sm:       var(--space-sm);
+  --space-stack-md:       var(--space-md);
+  --space-inline-gap-sm:  var(--space-xs);
+  --space-inline-gap-md:  var(--space-sm);
+
+  /* STATUS */
+  --status-done:        var(--pastel-green);
+  --status-inprogress:  var(--pastel-yellow);
+  --status-todo:        var(--pastel-lavender);
+  --status-blocked:     var(--pastel-pink);
+  --status-urgent:      var(--pastel-red);
+  --status-text-dark:   var(--near-black);
+}
+
+/* =========================================================
+   4. GLOBAL RESET & BASE STYLES
+   ========================================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box; 
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+/* Global layout helper (optional; remove if not needed) */
+.main-content {
+  padding-inline: var(--space-page-gutter);
+  padding-block:  var(--space-section-y);
+}
+
+/* Global Link Styles */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* Headings use semantic font sizes */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--space-stack-sm);
+  line-height: var(--lh-heading);
+  color: var(--accent);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
