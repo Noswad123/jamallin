@@ -83,8 +83,8 @@
   }
 
   .home-nav-item:hover {
-    border-color: var(--accent);
-    background: var(--bg-2);
+    border-color: var(--accent-primary);
+    background: var(--bg-surface);
     transform: translateY(-1px);
     text-decoration: none;
   }
@@ -112,7 +112,7 @@
     font-size: var(--fs-h3);
     line-height: 1;
     align-self: center;
-    color: var(--accent);
+    color: var(--primary);
   }
 
   @media (max-width: 600px) {

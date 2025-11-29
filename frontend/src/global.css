@@ -3,12 +3,20 @@
 
   --near-black: #11111b; /* for text on light/pastel backgrounds */
 
-  --grey-900: #1e1e2e; /* very dark grey / indigo */
+  --grey-900: #1e1e2e; /* very dark grey */
   --grey-800: #313244;
   --grey-700: #45475a;
 
   --soft-grey: #a6adc8; /* muted text */
   --offwhite:  #cdd6f4; /* main text */
+
+  --white: #FFFFFF;
+
+  --mauve: #cba6f7;
+	--sky: #89dceb;
+	--pink: #f5c2e7;
+	--red: #f38ba8;
+	--green: #a6e3a1;
 
   --powder-blue:        #a6d8eb;
   --powder-blue-bright: #89dceb;
@@ -55,15 +63,13 @@
      PALETTE LAYER (ABSTRACT UI ROLES)
      ========================================================= */
 
-  /* BACKGROUND SCALE */
-  --bg-0: var(--grey-900); /* page body */
-  --bg-1: var(--grey-800); /* surfaces/cards */
-  --bg-2: var(--grey-700); /* overlays/inputs */
 
+  --primary:      var(--white);
+  --secondary:    var(--white);
 
-  /* ACCENT */
-  --accent-0: var(--powder-blue);
-  --accent-1: var(--powder-blue-bright);
+  /* ACCENTS Roles */
+  --accent-primary:      var(--white);
+  --accent-secondary:    var(--white);
 
   --space-xxs: var(--space-1); /* 2px */
   --space-xs:  var(--space-2); /* 4px */
@@ -83,17 +89,25 @@
      SEMANTIC TOKENS (USED IN COMPONENTS)
      ========================================================= */
 
-  --bg-body:    var(--bg-0);
-  --bg-surface: var(--bg-1);
-  --bg-overlay: var(--bg-2);
+  --red: var(--pastel-red);
+  --purple: var(--mauve);
+  --blue: var(--sky);
+  --yellow: var(--pastel-yellow);
+  --green: var(--pastel-green);
+  --pink: var(--pastel-pink);
+
+  /* Color Roles */
+  --bg-body:    var(--near-black);
+  --bg-surface: var(--grey-900);
+  --bg-overlay: var(--grey-800);
 
   /* TEXT */
   --text-main:  var(--offwhite);
   --text-muted: var(--soft-grey);
 
   /* ACCENTS */
-  --accent:       var(--accent-0);
-  --accent-hover: var(--accent-1);
+  --accent:       var(--accent-primary);
+  --accent-hover: var(--accent-secondary);
 
   /* BORDERS */
   --border-dim: var(--grey-700);
@@ -173,10 +187,24 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 var(--space-stack-sm);
   line-height: var(--lh-heading);
-  color: var(--accent);
 }
 
-h1 { font-size: var(--fs-h1); }
-h2 { font-size: var(--fs-h2); }
-h3 { font-size: var(--fs-h3); }
-h4 { font-size: var(--fs-h4); }
+h1 {
+  font-size: var(--fs-h1);
+  color: var(--accent);               /* primary accent */
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  color: var(--offwhite);             /* strong but not neon */
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  color: var(--text-main);            /* main text color */
+}
+
+h4, h5, h6 {
+  font-size: var(--fs-h4);
+  color: var(--text-muted);           /* subtle section labels */
+}

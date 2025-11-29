@@ -3,11 +3,11 @@
   type ProjectCard = {
     title: string;
     description: string;
-    loreSlug: string;
+    loreSlug?: string;
     githubUrl: string;
     techStack?: string[];
     status?: string;
-    statusType?: StatusType;
+    statusType?: string;
   }
 
   const StatusType = {
@@ -27,16 +27,16 @@
     loreSlug,
     techStack = [], 
     status = "unfinished", 
-    statusType = StatusType.Todo
+    statusType = 'todo'
   } = $props<ProjectCard>();
 
   /** Map enum values -> CSS class names */
-  const statusClassMap: Record<StatusType, string> = {
-    [StatusType.Done]: "status--done",
-    [StatusType.InProgress]: "status--inprogress",
-    [StatusType.Todo]: "status--todo",
-    [StatusType.Blocked]: "status--blocked",
-    [StatusType.Urgent]: "status--urgent"
+  const statusClassMap: Record<string, string> = {
+    ['done']: "status--done",
+    ['in-progress']: "status--inprogress",
+    ['todo']: "status--todo",
+    ['blocked']: "status--blocked",
+    ['urgent']: "status--urgent"
   };
 
   const statusClass = $derived(statusClassMap[statusType]);
@@ -265,27 +265,27 @@ function rewriteImageSrc(html: string, baseUrl: string | null): string {
   }
 
   .status--done {
-    background-color: var(--pastel-green);
+    background-color: var(--green);
     color: var(--near-black);
   }
 
   .status--inprogress {
-    background-color: var(--pastel-yellow);
+    background-color: var(--yellow);
     color: var(--near-black);
   }
 
   .status--todo {
-    background-color: var(--pastel-lavender);
+    background-color: var(--purple);
     color: var(--near-black);
   }
 
   .status--blocked {
-    background-color: var(--pastel-pink);
+    background-color: var(--pink);
     color: var(--near-black);
   }
 
   .status--urgent {
-    background-color: var(--pastel-red);
+    background-color: var(--red);
     color: var(--near-black);
   }
 

@@ -17,36 +17,71 @@
 </svelte:head>
 
 <main class="page">
-  <div class="content">
-    <!-- This is where +page.svelte (and nested routes) render -->
-    <slot />
-  </div>
+  <div class="page-inner">
+    <div class="content">
+      <!-- This is where +page.svelte (and nested routes) render -->
+      <slot />
+    </div>
 
-  <Sidebar {sections} />
+    <aside class="sidebar-wrapper">
+      <Sidebar {sections} />
+    </aside>
+  </div>
 </main>
 
 <style>
   .page {
     min-height: 100vh;
     display: flex;
+    /* center the whole layout on wide screens */
+    justify-content: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .page-inner {
+    /* full-width on small screens, capped on large */
+    width: 100%;
+    max-width: 1200px;
+
+    display: flex;
     flex-direction: row;
+    gap: 2rem;
   }
 
   .content {
+    /* content is the main column */
     flex: 1;
-    padding: 2rem 1.5rem;
-    max-width: 900px;
-    margin-right: 260px; /* space for fixed sidebar */
+    max-width: 800px;
   }
 
-  @media (max-width: 768px) {
+  .sidebar-wrapper {
+    /* keep the sidebar nicely sized */
+    width: 220px;
+    flex-shrink: 0;
+
+    /* make it follow scroll but not overlap header */
+    position: sticky;
+    top: 2rem;
+  }
+
+  @media (max-width: 900px) {
     .page {
-      flex-direction: column;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    .page-inner {
+      flex-direction: column-reverse;
+      max-width: 100%;
     }
 
     .content {
-      margin-right: 0;
-      padding-top: 1rem;
+      max-width: 100%;
+    }
+
+    .sidebar-wrapper {
+      width: 100%;
+      position: static;
+      order: 2;
     }
   }
 </style>
