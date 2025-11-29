@@ -1,5 +1,5 @@
 <script lang="ts">
-  import './layout.css';
+  import '../global.css';
   import favicon from '$lib/assets/favicon.svg';
   import Sidebar from '$lib/components/Sidebar.svelte';
 
@@ -8,7 +8,9 @@
   const sections = [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
-    { path: '/projects', label: 'Projects' }
+    { path: '/projects', label: 'Projects' },
+    { path: '/lists', label: 'Lists' },
+    { path: '/tribute', label: 'Tribute' }
   ];
 </script>
 
@@ -26,13 +28,6 @@
 </main>
 
 <style>
-  :global(body) {
-    margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #0f172a;
-    color: #e5e7eb;
-  }
-
   .page {
     min-height: 100vh;
     display: flex;
