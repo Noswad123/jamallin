@@ -3,8 +3,6 @@
   import favicon from '$lib/assets/favicon.svg';
   import Sidebar from '$lib/components/Sidebar.svelte';
 
-  export let data;
-
   const sections = [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },

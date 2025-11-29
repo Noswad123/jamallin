@@ -53,16 +53,6 @@
     margin-top: var(--space-section-y);
   }
 
-  .social__title {
-    font-size: var(--fs-h3);
-  }
-
-  .social__subtitle {
-    margin: 0;
-    color: var(--text-muted);
-    font-size: var(--fs-body-small);
-  }
-
   .social__links {
     display: flex;
     flex-wrap: wrap;

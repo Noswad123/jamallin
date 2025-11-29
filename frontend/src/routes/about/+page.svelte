@@ -34,14 +34,6 @@
     max-width: 60ch;
   }
 
-  .about-eyebrow {
-    margin: 0;
-    font-size: var(--fs-tag);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-
   .about-heading {
     margin: 0;
     font-size: var(--fs-h1);

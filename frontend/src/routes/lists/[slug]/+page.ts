@@ -1,5 +1,6 @@
 import type { PageLoad } from './$types';
 import { lists } from '$lib/listsData';
+import { error } from '@sveltejs/kit';
 
 export const load: PageLoad = ({ params }) => {
   const list = lists.find((l) => l.slug === params.slug);
