@@ -132,13 +132,6 @@
   --space-inline-gap-sm:  var(--space-xs);
   --space-inline-gap-md:  var(--space-sm);
 
-  /* STATUS */
-  --status-done:        var(--pastel-green);
-  --status-inprogress:  var(--pastel-yellow);
-  --status-todo:        var(--pastel-lavender);
-  --status-blocked:     var(--pastel-pink);
-  --status-urgent:      var(--pastel-red);
-  --status-text-dark:   var(--near-black);
 }
 
 /* =========================================================

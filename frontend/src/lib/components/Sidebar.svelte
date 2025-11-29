@@ -21,7 +21,6 @@
 
   {#if sidebarOpen}
     <nav class="nav">
-      <h3>Sections</h3>
       <ul>
         {#each sections as section}
           <li>

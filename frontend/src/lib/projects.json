@@ -3,24 +3,90 @@
     "title": "Personal Site",
     "description": "The website you are looking at right now. Built with Svelte and a custom Catppuccin theme.",
     "status": "WIP",
-    "statusType": "good",
-    "link": "https://github.com/Noswad123/jamallin",
-    "techStack": ["Svelte", "CSS", "Vercel"]
+    "statusType": "todo",
+    "githubUrl": "https://github.com/Noswad123/jamallin",
+    "techStack": ["Svelte", "CSS", "Vercel"],
+    "loreSlug": "jamallin"
   },
   {
     "title": "Mind Weaver",
     "status":"WIP",
-    "statusType": "ok",
+    "statusType": "todo",
     "description": "Notes companion software. Integrations with Neorg and neovim to make your notes queriable",
-    "link": "#",
-    "techStack": ["Python", "SQLITE", "Go"]
+    "githubUrl": "https://github.com/Noswad123/mind-weaver",
+    "techStack": ["Python", "SQLITE", "Go"],
+    "loreSlug": "mind-weaver"
   },
   {
     "title": "Foodie",
-    "status":"Inception",
-    "statusType": "bad",
+    "status":"WIP",
+    "statusType": "todo",
     "description": "Recipe book and kitchen inventory app",
-    "link": "#",
-    "techStack": []
+    "githubUrl": "https://github.com/Noswad123/foodie",
+    "techStack": ["IDK"],
+    "loreSlug": "foodie"
+  },
+  {
+    "title": "Ideomancer",
+    "description": "Ambitious project to create software to help you create software",
+    "status": "Ideation",
+    "statusType": "todo",
+    "githubUrl": "https://github.com/Noswad123/ideomancer",
+    "techStack": ["IDK"],
+    "loreSlug": "ideomancer"
+  },
+  {
+    "title": "Task Bounty",
+    "status":"Ideation",
+    "statusType": "todo",
+    "description": "An app to manage the fulfillment of oddjobs.",
+    "githubUrl": "https://github.com/Noswad123/taskbounty",
+    "techStack": ["IDK"],
+    "loreSlug": "task-bounty"
+  },
+  {
+    "title": "Mentorship",
+    "status":"Not started",
+    "statusType": "TODO",
+    "description": "An app to help mentors and mentees connect",
+    "githubUrl": "https://github.com/Noswad123/mentorship",
+    "techStack": ["IDK"],
+    "loreSlug": "mentorship"
+  },
+  {
+    "title": "Top 5",
+    "description": "A fun social site to debate the serious and innane.",
+    "status": "WIP",
+    "statusType": "todo",
+    "githubUrl": "https://github.com/Noswad123/top5",
+    "techStack": ["IDK"],
+    "loreSlug": "top5"
+  },
+  {
+    "title": "Polyglot",
+    "status":"WIP",
+    "statusType": "todo",
+    "description": "A repo to help you learn, compare, and practice programming languages.",
+    "githubUrl": "https://github.com/Noswad123/polyglot",
+    "techStack": ["IDK"],
+    "loreSlug": "polyglot"
+  },
+  {
+    "title": "Web Design Catalogue",
+    "status":"Redesign",
+    "statusType": "todo",
+    "description": "An application for users to play around with different HTML/CSS components and layouts.",
+    "githubUrl": "https://github.com/Noswad123/web-design-catalogue",
+    "techStack": ["IDK"],
+    "loreSlug": "catalogue"
+  },
+  {
+    "title": "Notelib",
+    "status":"Redo",
+    "statusType": "todo",
+    "description": "Experiment with Music theory programatically",
+    "githubUrl": "https://github.com/Noswad123/notelib",
+    "techStack": ["IDK"],
+    "loreSlug": "note-lib"
   }
 ]
