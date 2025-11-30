@@ -91,7 +91,7 @@ function rewriteImageSrc(html: string, baseUrl: string | null): string {
         if (!res.ok) throw new Error(`Failed to load README: ${res.status}`);
         const markdown = await res.text();
         // safely remove first header of readme
-        const stripped = text.replace(/^\s*#{1,6}\s+.*\n/, '');
+        const stripped = markdown.replace(/^\s*#{1,6}\s+.*\n/, '');
         let html  = marked.parse(stripped) as string;
         html = rewriteImageSrc(html, rawBaseUrl);
         readmeHtml = html;
