@@ -1,4 +1,4 @@
-import projects from '$lib/projects.json';
+import projects from '$lib/data/projects.json';
 
 export function load() {
   return { projects };

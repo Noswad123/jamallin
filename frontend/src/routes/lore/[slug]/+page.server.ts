@@ -1,6 +1,7 @@
 import type { PageLoad } from './$types';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import { base } from '$app/paths';
 
 type LoreFrontmatter = {
   title?: string;
@@ -32,11 +33,9 @@ export const load: PageLoad = async ({ params }) => {
 
   const title = fm.title ?? slug;
 
-  // Markdown -> HTML
   const rawHtml = marked.parse(content) as string;
 
-  // Fix internal lore links
-  const html = rewriteLoreLinks(rawHtml);
+  const html = rewriteLoreLinks(rawHtml, `${base}/lore/`);
 
   return {
     slug,
@@ -47,15 +46,18 @@ export const load: PageLoad = async ({ params }) => {
 };
 
 /**
- * Rewrite <a href="ideomancer"> to <a href="/lore/ideomancer">
+ * Converts internal lore links such as <a href="ideomancer"> into
+ * fully qualified lore paths like <a href="/lore/ideomancer">.
  *
- * Rules:
- * - If href DOES NOT start with http(s):// AND
- * - DOES NOT start with "/" AND
- * - DOES NOT start with "#" (anchors)
- * → treat it as a lore slug and prefix with "/lore/".
+ * A link is considered a lore link if its href:
+ * - does NOT start with "http://" or "https://"
+ * - does NOT start with "/"
+ * - does NOT start with "#" (anchor link)
+ *
+ * All such href values are treated as lore slugs and are prefixed
+ * with the lore route path.
  */
-function rewriteLoreLinks(html: string): string {
+function rewriteLoreLinks(html: string, lorePrefix: string): string {
   return html.replace(
     /href="([^"]+)"/g,
     (match, href) => {
@@ -70,7 +72,7 @@ function rewriteLoreLinks(html: string): string {
       }
 
       // Otherwise, treat as lore slug
-      return `href="/lore/${href}"`;
+      return `href="${lorePrefix}${href}"`;
     }
   );
 }

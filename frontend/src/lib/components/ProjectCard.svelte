@@ -90,7 +90,9 @@ function rewriteImageSrc(html: string, baseUrl: string | null): string {
         const res = await fetch(rawReadmeUrl);
         if (!res.ok) throw new Error(`Failed to load README: ${res.status}`);
         const markdown = await res.text();
-        let html  = marked.parse(markdown) as string;
+        // safely remove first header of readme
+        const stripped = text.replace(/^\s*#{1,6}\s+.*\n/, '');
+        let html  = marked.parse(stripped) as string;
         html = rewriteImageSrc(html, rawBaseUrl);
         readmeHtml = html;
       } catch(err) {

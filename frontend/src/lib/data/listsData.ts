@@ -49,7 +49,6 @@ export const lists: SimpleList[] = [
     Boyz II Men, Stevie Wonder, and Whitney Houston aren't even debatable
     `
   },
-
   {
     slug: 'top-5-comedy-shows',
     title: 'Top 5 Comedy Shows',
@@ -58,8 +57,8 @@ export const lists: SimpleList[] = [
     items: [
       "Chapelle Show",
       "Arrested Development",
-      'Community',
-      "Who's line is it anyways?",
+      "Community",
+      "Scrubs",
       "The Office",
     ],
     note: 'These shows are hilarious',

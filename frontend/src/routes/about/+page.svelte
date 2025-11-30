@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SocialLinks from '$lib/SocialLinks.svelte';
+  import SocialLinks from '$lib/components/SocialLinks.svelte';
 </script>
 
 <main class="about-page main-content">

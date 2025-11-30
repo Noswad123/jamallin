@@ -23,7 +23,7 @@
 
     <a class="home-nav-item" href="/lists">
       <div class="home-nav-text">
-        <h2 class="home-nav-heading">I have some strong opinions.</h2>
+        <h2 class="home-nav-heading">I have a few opinions.</h2>
         <p class="home-nav-subtitle">Wanna check them out?</p>
       </div>
       <span class="home-nav-arrow">→</span>

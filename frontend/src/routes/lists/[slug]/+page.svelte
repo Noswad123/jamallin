@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SimpleList } from '$lib/listsData';
+  import type { SimpleList } from '$lib/data/listsData';
   export let data: { list: SimpleList };
   const { list } = data;
 

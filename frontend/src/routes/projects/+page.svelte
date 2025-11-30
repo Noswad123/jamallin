@@ -1,6 +1,6 @@
 <script lang="ts">
-  import ProjectCard from '$lib/ProjectCard.svelte';
-  import projects from '$lib/projects.json';
+  import ProjectCard from '$lib/components/ProjectCard.svelte';
+  import projects from '$lib/data/projects.json';
 
   type Project = {
     title: string;

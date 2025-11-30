@@ -1,17 +1,17 @@
 [
   {
     "title": "Personal Site",
-    "description": "The website you are looking at right now. Built with Svelte and a custom Catppuccin theme.",
+    "description": "The website you are looking at right now. I wanted to test drive Svelte.",
     "status": "done-ish",
     "statusType": "done",
     "githubUrl": "https://github.com/Noswad123/jamallin",
-    "techStack": ["Svelte", "CSS", "Vercel"]
+    "techStack": ["Svelte", "CSS", "Python"]
   },
   {
     "title": "Mind Weaver",
     "status":"WIP",
     "statusType": "in-progress",
-    "description": "Notes companion software. Integrations with Neorg and neovim to make your notes queriable",
+    "description": "Notes companion software. Integrations with Neorg and neovim to make your notes queriable.",
     "githubUrl": "https://github.com/Noswad123/mind-weaver",
     "techStack": ["Python", "SQLITE", "Go"],
     "loreSlug": "mind-weaver"

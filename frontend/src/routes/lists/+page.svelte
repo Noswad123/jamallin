@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SimpleList, LayoutType } from '$lib/listsData';
+  import type { SimpleList, LayoutType } from '$lib/data/listData';
   export let data: { lists: SimpleList[] };
   const lists = data.lists;
 
