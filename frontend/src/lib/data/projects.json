@@ -33,19 +33,19 @@
     "techStack": ["IDK"]
   },
   {
-    "title": "Task Bounty",
+    "title": "Errandhall",
     "status":"Not Started",
     "statusType": "blocked",
     "description": "An app to manage the fulfillment of oddjobs.",
-    "githubUrl": "https://github.com/Noswad123/taskbounty",
+    "githubUrl": "https://github.com/Noswad123/errandhall",
     "techStack": ["IDK"]
   },
   {
-    "title": "Mentorship",
+    "title": "Sagebound",
     "status":"Not started",
     "statusType": "blocked",
     "description": "An app to help mentors and mentees connect",
-    "githubUrl": "https://github.com/Noswad123/mentorship",
+    "githubUrl": "https://github.com/Noswad123/sagebound",
     "techStack": ["IDK"]
   },
   {
@@ -65,19 +65,19 @@
     "techStack": ["IDK"]
   },
   {
-    "title": "Web Design Catalogue",
-    "status":"Redesign",
+    "title": "Mimic",
+    "status":"Not Started",
     "statusType": "urgent",
     "description": "An application for users to play around with different HTML/CSS components and layouts.",
-    "githubUrl": "https://github.com/Noswad123/web-design-catalogue",
-    "techStack": ["IDK"]
+    "githubUrl": "https://github.com/Noswad123/mimic",
+    "techStack": ["Svelte", "CSS"]
   },
   {
-    "title": "Notelib",
-    "status":"Redo",
+    "title": "Lasoundra",
+    "status":"Not Started",
     "statusType": "urgent",
     "description": "Experiment with Music theory programatically",
-    "githubUrl": "https://github.com/Noswad123/notelib",
-    "techStack": ["IDK"]
+    "githubUrl": "https://github.com/Noswad123/lasoundra",
+    "techStack": ["Python"]
   }
 ]

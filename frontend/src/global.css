@@ -1,10 +1,9 @@
 :root {
   /* RAW TOKENS (HEX COLORS, PIXELS, REMS, ETC.) */
 
-  --near-black: #11111b; /* for text on light/pastel backgrounds */
-
   --grey-900: #1e1e2e; /* very dark grey */
-  --grey-800: #313244;
+  --grey-800: #323F45;
+  /* --grey-800: #313244; */
   --grey-700: #45475a;
 
   --soft-grey: #a6adc8; /* muted text */
@@ -12,8 +11,13 @@
 
   --white: #FFFFFF;
 
-  --mauve: #cba6f7;
-	--sky: #89dceb;
+  --mauve: #B07BAC;
+	--sky: #2EC1DC;
+  --yellow:#E3D26F;
+  --lilac: #c9a6c6;
+	--sky-bright: #62D1E4;
+  --yellow-bright:#EBDF99;
+
 	--pink: #f5c2e7;
 	--red: #f38ba8;
 	--green: #a6e3a1;
@@ -64,12 +68,14 @@
      ========================================================= */
 
 
-  --primary:      var(--white);
-  --secondary:    var(--white);
+  --primary:  var(--mauve);
+  --secondary:var(--sky);
+  --tertiary: var(--yellow);
 
   /* ACCENTS Roles */
-  --accent-primary:      var(--white);
-  --accent-secondary:    var(--white);
+  --accent-primary:      var(--lilac);
+  --accent-secondary:    var(--sky-bright);
+  --accent-tertiary:    var(--yellow-bright);
 
   --space-xxs: var(--space-1); /* 2px */
   --space-xs:  var(--space-2); /* 4px */
@@ -88,25 +94,16 @@
   /* =========================================================
      SEMANTIC TOKENS (USED IN COMPONENTS)
      ========================================================= */
-
-  --red: var(--pastel-red);
-  --purple: var(--mauve);
-  --blue: var(--sky);
-  --yellow: var(--pastel-yellow);
-  --green: var(--pastel-green);
-  --pink: var(--pastel-pink);
-
-  /* Color Roles */
-  --bg-body:    var(--near-black);
-  --bg-surface: var(--grey-900);
-  --bg-overlay: var(--grey-800);
+  --bg-body:    var(--grey-900);
+  --bg-surface: var(--grey-800);
+  --bg-overlay: var(--grey-700);
 
   /* TEXT */
   --text-main:  var(--offwhite);
   --text-muted: var(--soft-grey);
 
   /* ACCENTS */
-  --accent:       var(--accent-primary);
+  --accent:       var(--accent-secondary);
   --accent-hover: var(--accent-secondary);
 
   /* BORDERS */
@@ -173,13 +170,13 @@ body {
 
 /* Global Link Styles */
 a {
-  color: var(--accent);
+  color: var(--tertiary);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 a:hover {
-  color: var(--accent-hover);
+  color: var(--accent-tertiary);
   text-decoration: underline;
 }
 
@@ -191,12 +188,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: var(--fs-h1);
-  color: var(--accent);               /* primary accent */
+  color: var(--primary);               /* primary accent */
 }
 
 h2 {
   font-size: var(--fs-h2);
-  color: var(--offwhite);             /* strong but not neon */
+  color: var(--secondary);             /* strong but not neon */
 }
 
 h3 {
