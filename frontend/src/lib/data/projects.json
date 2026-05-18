@@ -17,6 +17,15 @@
     "loreSlug": "mind-weaver"
   },
   {
+    "title": "Jamal Arcana",
+    "status": "Planning",
+    "statusType": "in-progress",
+    "description": "A fantasy-inspired ecosystem of local-first tools for navigation, workflow summoning, and knowledge craft.",
+    "githubUrl": "https://github.com/Noswad123/jamal-arcana",
+    "techStack": ["Bash", "CLI", "Documentation"],
+    "loreSlug": "jamal-arcana"
+  },
+  {
     "title": "Foodie",
     "status":"Not Started",
     "statusType": "blocked",
@@ -79,5 +88,21 @@
     "description": "Experiment with Music theory programatically",
     "githubUrl": "https://github.com/Noswad123/lasoundra",
     "techStack": ["Python"]
+  },
+  {
+    "title": "Wisp",
+    "status":"In Progress",
+    "statusType": "urgent",
+    "description": "Gives you the ability to float the results of shell command",
+    "githubUrl": "https://github.com/Noswad123/wisp",
+    "techStack": ["bash"]
+  },
+  {
+    "title": "Waystone",
+    "status":"In Progress",
+    "statusType": "urgent",
+    "description": "Store paths to recall them later",
+    "githubUrl": "https://github.com/Noswad123/waystone",
+    "techStack": ["bash"]
   }
 ]
