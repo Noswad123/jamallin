@@ -1,13 +1,6 @@
 <script lang="ts">
-  export let sections: { id: string; label: string }[] = [];
+  export let sections: { path: string; label: string }[] = [];
   let sidebarOpen = true;
-
-  function scrollToSection(id: string) {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
 </script>
 
 <aside class={`sidebar ${sidebarOpen ? 'open' : 'closed'}`}>

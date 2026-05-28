@@ -1,4 +1,4 @@
-import type { PageLoad } from './$types';
+import type { PageServerLoad } from './$types';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import { base } from '$app/paths';
@@ -15,7 +15,7 @@ const loreFiles = import.meta.glob('/src/lib/lore/*.md', {
   eager: true
 }) as Record<string, string>;
 
-export const load: PageLoad = async ({ params }) => {
+export const load: PageServerLoad = async ({ params }) => {
   const { slug } = params;
 
   const entry = Object.entries(loreFiles).find(([path]) =>

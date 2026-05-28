@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SimpleList, LayoutType } from '$lib/data/listData';
+  import type { SimpleList, LayoutType } from '$lib/data/listsData';
   export let data: { lists: SimpleList[] };
   const lists = data.lists;
 
@@ -86,7 +86,7 @@
                   </li>
                 {/each}
               </ul>
-              {:else if ['top5','top10'].includes(list.layout)}
+              {:else if list.layout && ['top5','top10'].includes(list.layout)}
               <ol class="list-items">
                 {#each list.items as item, i}
                   <li class="list-item">

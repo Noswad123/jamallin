@@ -28,7 +28,7 @@
     techStack = [], 
     status = "unfinished", 
     statusType = 'todo'
-  } = $props<ProjectCard>();
+  } = $props() as ProjectCard;
 
   /** Map enum values -> CSS class names */
   const statusClassMap: Record<string, string> = {
