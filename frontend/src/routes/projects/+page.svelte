@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { marked } from 'marked';
+  import { getLoreSource, getProjectLoreSlug, loreFileExists, type LoreSource } from '$lib/data/loreSources';
 
   type Project = {
     title: string;
@@ -9,7 +10,6 @@
     statusType: string;
     techStack: string[];
     githubUrl: string;
-    loreSlug?: string;
   };
 
   export let data: { projects: Project[] };
@@ -29,6 +29,8 @@
   let readmeHtml: string | null = null;
   let readmeError: string | null = null;
   let readmeRequestId = 0;
+  let selectedLoreSource: LoreSource | null = null;
+  let loreRequestId = 0;
 
   onMount(() => {
     if (defaultProject) void selectProject(defaultProject);
@@ -70,6 +72,7 @@
     selectedProject = project;
     readmeHtml = null;
     readmeError = null;
+    void loadProjectLoreSource(project);
 
     const rawReadmeUrl = getRawReadmeUrl(project.githubUrl);
     if (!rawReadmeUrl) {
@@ -96,6 +99,23 @@
       readmeError = err instanceof Error ? err.message : 'Failed to load README';
     } finally {
       if (requestId === readmeRequestId) loadingReadme = false;
+    }
+  }
+
+  async function loadProjectLoreSource(project: Project) {
+    const requestId = ++loreRequestId;
+    selectedLoreSource = null;
+
+    const slug = getProjectLoreSlug(project);
+    if (!slug) return;
+
+    try {
+      const exists = await loreFileExists(slug);
+      if (requestId === loreRequestId && exists) {
+        selectedLoreSource = getLoreSource(slug);
+      }
+    } catch {
+      if (requestId === loreRequestId) selectedLoreSource = null;
     }
   }
 </script>
@@ -147,8 +167,8 @@
 
         <div class="project-detail__links">
           <a href={selectedProject.githubUrl} target="_blank" rel="noreferrer">GitHub repo</a>
-          {#if selectedProject.loreSlug}
-            <a href={`/lore/${selectedProject.loreSlug}`}>lore?</a>
+          {#if selectedLoreSource}
+            <a class="project-detail__lore-link" href={`/lore/${selectedLoreSource.slug}`}>lore?</a>
           {/if}
         </div>
 
@@ -311,6 +331,17 @@
     gap: 1rem;
     flex-wrap: wrap;
     margin: 1rem 0 1.5rem;
+  }
+
+  .project-detail__lore-link {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+  }
+
+  .project-detail__lore-link:hover {
+    text-decoration-style: solid;
   }
 
   .project-readme {

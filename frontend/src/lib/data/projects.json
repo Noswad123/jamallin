@@ -8,22 +8,28 @@
     "techStack": ["Svelte", "CSS", "Python"]
   },
   {
+    "title": "Coven",
+    "status":"Done",
+    "statusType": "done",
+    "description": "Multi agent tool",
+    "githubUrl": "https://github.com/Noswad123/coven",
+    "techStack": ["bash", "Python"]
+  },
+  {
     "title": "Mind Weaver",
-    "status":"WIP",
-    "statusType": "in-progress",
+    "status":"Done",
+    "statusType": "done",
     "description": "Notes companion software. Integrations with Neorg and neovim to make your notes queriable.",
     "githubUrl": "https://github.com/Noswad123/mind-weaver",
-    "techStack": ["Python", "SQLITE", "Go"],
-    "loreSlug": "mind-weaver"
+    "techStack": ["Python", "SQLITE", "Go"]
   },
   {
     "title": "Jamal Arcana",
-    "status": "Planning",
-    "statusType": "in-progress",
+    "status": "Done-ish",
+    "statusType": "done",
     "description": "A fantasy-inspired ecosystem of local-first tools for navigation, workflow summoning, and knowledge craft.",
     "githubUrl": "https://github.com/Noswad123/jamal-arcana",
-    "techStack": ["Bash", "CLI", "Documentation"],
-    "loreSlug": "jamal-arcana"
+    "techStack": ["Bash", "CLI", "Documentation"]
   },
   {
     "title": "Foodie",
@@ -35,11 +41,11 @@
   },
   {
     "title": "Ideomancer",
-    "description": "Ambitious project to create software to help you create software",
     "status": "Ideation",
     "statusType": "in-progress",
+    "description": "Ambitious project to create software to help you create software",
     "githubUrl": "https://github.com/Noswad123/ideomancer",
-    "techStack": ["IDK"]
+    "techStack": ["Go"]
   },
   {
     "title": "Errandhall",
@@ -91,16 +97,16 @@
   },
   {
     "title": "Wisp",
-    "status":"In Progress",
-    "statusType": "urgent",
+    "status":"Done",
+    "statusType": "done",
     "description": "Gives you the ability to float the results of shell command",
     "githubUrl": "https://github.com/Noswad123/wisp",
     "techStack": ["bash"]
   },
   {
     "title": "Waystone",
-    "status":"In Progress",
-    "statusType": "urgent",
+    "status":"Done",
+    "statusType": "done",
     "description": "Store paths to recall them later",
     "githubUrl": "https://github.com/Noswad123/waystone",
     "techStack": ["bash"]
