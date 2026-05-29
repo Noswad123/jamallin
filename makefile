@@ -4,7 +4,7 @@ requirements:
 frontend:
 	cd frontend && npm install && npm run build
 
-deploy: requirements
+deploy: requirements frontend
 	gcloud run deploy homepage \
 		--source . \
 		--region us-east1 \
