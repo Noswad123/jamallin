@@ -102,21 +102,15 @@ function rewriteImageSrc(html: string, baseUrl: string | null): string {
       }
     }
   }
-  function handleCardClick(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    if (target.closest('a, button')) return;
-    toggleExpanded();
-  }
 </script>
 
-<article class="card" onclick={handleCardClick}>
+<article class="card">
   <header class="card__header">
     <h3 class="card__title">
       <a 
         href={githubUrl}
         target="_blank"
         rel="noreferrer"
-        onclick={(event) => event.stopPropagation()}
       >
         {title}
       </a>
@@ -137,6 +131,10 @@ function rewriteImageSrc(html: string, baseUrl: string | null): string {
     </div>
   {/if}
 
+  <button type="button" class="card__toggle" aria-expanded={expanded} onclick={toggleExpanded}>
+    {expanded ? 'Hide README' : 'Read README'}
+  </button>
+
   {#if expanded}
     <div class="card__expanded">
       {#if loadingReadme}
@@ -155,7 +153,6 @@ function rewriteImageSrc(html: string, baseUrl: string | null): string {
           <a
             href={`/lore/${loreSlug}`}
             class="card__lore-link"
-            onclick={(event) => event.stopPropagation()}
           >
             lore?
           </a>
@@ -168,19 +165,21 @@ function rewriteImageSrc(html: string, baseUrl: string | null): string {
 <style>
   .card {
     width: 100%;
-    background-color: var(--bg-surface);
+    background: var(--surface-panel-cold);
     border: 1px solid var(--border-dim);
     border-radius: var(--radius);
+    clip-path: var(--panel-cut);
     padding: var(--space-card-padding);
     margin-bottom: var(--space-card-gap);
+    box-shadow: var(--panel-shadow);
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
   }
 
   .card:hover {
     transform: translateY(-4px);
-    border-color: var(--accent);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    border-color: var(--border-hot);
+    background: var(--surface-panel-warm);
+    box-shadow: var(--panel-shadow), var(--glow-hot);
   }
 
   .card__expanded {
@@ -240,6 +239,28 @@ function rewriteImageSrc(html: string, baseUrl: string | null): string {
     text-decoration-style: solid;
   }
 
+  .card__toggle {
+    align-self: flex-start;
+    margin-top: var(--space-stack-sm);
+    padding: 0.45rem 0.7rem;
+    border: 1px solid var(--border-hot);
+    border-radius: var(--radius-pill);
+    background: radial-gradient(circle at 50% 100%, rgba(255, 138, 61, 0.22), transparent 55%), rgba(5, 8, 18, 0.72);
+    color: var(--ember-hot);
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: var(--fs-tag);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .card__toggle:hover {
+    border-color: var(--frost-soft);
+    color: var(--frost-soft);
+    box-shadow: var(--glow-cold);
+  }
+
   .tags {
     display: flex;
     gap: var(--space-inline-gap-sm);
@@ -249,8 +270,9 @@ function rewriteImageSrc(html: string, baseUrl: string | null): string {
   .tag {
     font-size: var(--fs-tag);
     font-family: var(--font-mono);
-    background-color: var(--bg-overlay);
-    color: var(--accent);
+    border: 1px solid rgba(111, 199, 255, 0.24);
+    background: radial-gradient(circle at 50% 100%, rgba(39, 168, 255, 0.16), transparent 58%), var(--bg-overlay);
+    color: var(--frost-soft);
     padding: 0.25rem 0.5rem;
     border-radius: var(--radius-sm);
   }
@@ -264,6 +286,7 @@ function rewriteImageSrc(html: string, baseUrl: string | null): string {
     border-radius: var(--radius-pill);
     padding: 0.25rem 0.75rem;
     white-space: nowrap;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.18);
   }
 
   .status--done {

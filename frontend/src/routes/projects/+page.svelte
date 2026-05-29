@@ -31,9 +31,10 @@
   let readmeRequestId = 0;
   let selectedLoreSource: LoreSource | null = null;
   let loreRequestId = 0;
+  let projectListOpen = true;
 
   onMount(() => {
-    if (defaultProject) void selectProject(defaultProject);
+    if (defaultProject) void selectProject(defaultProject, { collapseList: false });
   });
 
   function getRawReadmeUrl(githubUrl: string): string | null {
@@ -66,10 +67,11 @@
     });
   }
 
-  async function selectProject(project: Project) {
+  async function selectProject(project: Project, options: { collapseList?: boolean } = {}) {
     const requestId = ++readmeRequestId;
 
     selectedProject = project;
+    if (options.collapseList ?? true) projectListOpen = false;
     readmeHtml = null;
     readmeError = null;
     void loadProjectLoreSource(project);
@@ -118,13 +120,29 @@
       if (requestId === loreRequestId) selectedLoreSource = null;
     }
   }
+
+  function showProjectList() {
+    projectListOpen = true;
+  }
 </script>
 
 <main class="projects-page">
   <h1 class="projects-title">Here's what I've been hacking on.</h1>
 
   <div class="projects-shell">
-    <aside class="projects-list" aria-label="Projects">
+    {#if !projectListOpen}
+      <button
+        type="button"
+        class="projects-list-tab"
+        aria-controls="projects-list"
+        aria-expanded={projectListOpen}
+        onclick={showProjectList}
+      >
+        Browse projects
+      </button>
+    {/if}
+
+    <aside id="projects-list" class:projects-list--closed={!projectListOpen} class="projects-list" aria-label="Projects">
       {#each data.projects as project}
         <button
           type="button"
@@ -218,8 +236,11 @@
   }
 
   .projects-page {
+    width: 100%;
+    max-width: 100%;
     min-height: 100vh;
     padding: 0 0 4rem;
+    overflow-x: clip;
   }
 
   .projects-title {
@@ -230,6 +251,8 @@
 
   .projects-shell {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     margin: 0;
     display: grid;
     grid-template-columns: minmax(22rem, 30rem) minmax(0, 1fr);
@@ -240,6 +263,7 @@
   .projects-list {
     position: sticky;
     top: 1rem;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
@@ -247,15 +271,21 @@
     overflow: auto;
   }
 
+  .projects-list-tab {
+    display: none;
+  }
+
   .project-list-item {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
     padding: 18px 20px;
     border: 1px solid var(--border-dim);
     border-radius: var(--radius);
-    background: var(--bg-surface);
+    background: var(--surface-panel-cold);
     color: var(--text-main);
     font: inherit;
     text-align: left;
@@ -266,9 +296,10 @@
   .project-list-item:hover,
   .project-list-item:focus-visible,
   .project-list-item.active {
-    transform: translateX(4px);
-    border-color: var(--accent);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transform: translateX(3px);
+    border-color: var(--border-hot);
+    background: var(--surface-panel-warm);
+    box-shadow: var(--panel-shadow), var(--glow-hot);
     outline: none;
   }
 
@@ -296,11 +327,15 @@
   }
 
   .project-detail {
+    min-width: 0;
+    max-width: 100%;
     min-height: 70vh;
     padding: clamp(1rem, 3vw, 2rem);
     border: 1px solid var(--border-dim);
     border-radius: var(--radius);
-    background: var(--bg-surface);
+    background: var(--surface-panel-cold);
+    clip-path: var(--panel-cut);
+    box-shadow: var(--panel-shadow);
   }
 
   .project-detail__header {
@@ -309,6 +344,10 @@
     justify-content: space-between;
     gap: var(--space-inline-gap-md);
     margin-bottom: var(--space-stack-md);
+  }
+
+  .project-detail__header > div {
+    min-width: 0;
   }
 
   .project-detail__eyebrow {
@@ -322,6 +361,7 @@
 
   .project-detail__description,
   .project-detail__placeholder p {
+    overflow-wrap: anywhere;
     color: var(--text-muted);
     margin: 0 0 var(--space-stack-md);
   }
@@ -331,6 +371,10 @@
     gap: 1rem;
     flex-wrap: wrap;
     margin: 1rem 0 1.5rem;
+  }
+
+  .project-detail__links a {
+    overflow-wrap: anywhere;
   }
 
   .project-detail__lore-link {
@@ -345,12 +389,21 @@
   }
 
   .project-readme {
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: clip;
     border-top: 1px solid var(--border-dim);
     padding-top: 1.5rem;
   }
 
   .project-readme__content {
     max-width: 75ch;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .project-readme__content :global(*) {
+    max-width: 100%;
   }
 
   .project-readme__content :global(img) {
@@ -360,10 +413,23 @@
   }
 
   .project-readme__content :global(pre) {
+    max-width: 100%;
     overflow: auto;
     padding: 1rem;
     border-radius: var(--radius-sm);
-    background: var(--bg-body);
+    border: 1px solid rgba(111, 199, 255, 0.24);
+    background: rgba(3, 8, 14, 0.78);
+    box-shadow: inset 0 0 24px rgba(39, 168, 255, 0.06);
+  }
+
+  .project-readme__content :global(code) {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .project-readme__content :global(table) {
+    display: block;
+    overflow-x: auto;
   }
 
   .project-readme__loading,
@@ -381,8 +447,9 @@
   .tag {
     font-size: var(--fs-tag);
     font-family: var(--font-mono);
-    background-color: var(--bg-overlay);
-    color: var(--accent);
+    border: 1px solid rgba(111, 199, 255, 0.24);
+    background: radial-gradient(circle at 50% 100%, rgba(39, 168, 255, 0.16), transparent 58%), var(--bg-overlay);
+    color: var(--frost-soft);
     padding: 0.25rem 0.5rem;
     border-radius: var(--radius-sm);
   }
@@ -395,6 +462,7 @@
     border-radius: var(--radius-pill);
     padding: 0.25rem 0.75rem;
     white-space: nowrap;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.18);
   }
 
   .status--done {
@@ -424,16 +492,62 @@
 
   @media (max-width: 800px) {
     :global(.page:has(.projects-page)) {
-      padding: 20px;
+      overflow-x: clip;
+      padding: 16px;
+    }
+
+    :global(.page-inner:has(.projects-page)),
+    :global(.content:has(.projects-page)) {
+      min-width: 0;
+      max-width: 100%;
+      overflow-x: clip;
+    }
+
+    .projects-title {
+      font-size: clamp(1.55rem, 8vw, 2rem);
     }
 
     .projects-shell {
       grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .projects-list-tab {
+      position: sticky;
+      top: 0.75rem;
+      z-index: 2;
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 0.9rem;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-pill);
+      background: var(--bg-overlay);
+      color: var(--accent);
+      font: inherit;
+      font-family: var(--font-mono);
+      font-size: var(--fs-body-small);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
     }
 
     .projects-list {
       position: static;
       max-height: none;
+    }
+
+    .projects-list--closed {
+      display: none;
+    }
+
+    .project-detail {
+      padding: 1rem;
+    }
+
+    .project-detail__header {
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
     .project-list-item:hover,

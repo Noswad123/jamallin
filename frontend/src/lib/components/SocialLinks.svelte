@@ -67,11 +67,14 @@
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-pill);
     border: 1px solid var(--border-dim);
-    background: var(--bg-surface);
-    color: var(--text-main);
+    background: radial-gradient(circle at 50% 100%, rgba(39, 168, 255, 0.14), transparent 58%), var(--bg-surface);
+    color: var(--frost-soft);
     font-size: var(--fs-button);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    letter-spacing: 0.06em;
     line-height: 1.3;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 0 14px rgba(39, 168, 255, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.15);
     transition:
       background-color 0.18s ease-out,
       border-color 0.18s ease-out,
@@ -80,10 +83,11 @@
   }
 
   .social__chip:hover {
-    background-color: var(--bg-overlay);
-    border-color: var(--accent);
+    background: radial-gradient(circle at 50% 100%, rgba(255, 138, 61, 0.22), transparent 58%), var(--bg-overlay);
+    border-color: var(--border-hot);
+    color: var(--ember-hot);
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    box-shadow: var(--glow-hot);
     text-decoration: none;
   }
 

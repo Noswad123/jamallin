@@ -150,20 +150,26 @@
     padding: var(--space-xxs) var(--space-sm);
     border-radius: var(--radius-pill);
     border: 1px solid var(--border-dim);
-    background: var(--bg-surface);
-    color: var(--text-main);
+    background: radial-gradient(circle at 50% 100%, rgba(39, 168, 255, 0.14), transparent 60%), var(--bg-surface);
+    color: var(--frost-soft);
     font-size: var(--fs-tag);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     cursor: pointer;
     transition:
-      background-color 0.15s ease-out,
+      background 0.15s ease-out,
       border-color 0.15s ease-out,
+      box-shadow 0.15s ease-out,
       transform 0.08s ease-out;
   }
 
   .filter-chip.selected {
-    background: var(--accent);
-    border-color: var(--accent-hover);
-    color: var(--status-text-dark);
+    background: radial-gradient(circle at 50% 100%, rgba(255, 138, 61, 0.32), transparent 58%), var(--bg-surface);
+    border-color: var(--border-hot);
+    color: var(--ember-hot);
+    box-shadow: var(--glow-hot);
     transform: translateY(-1px);
   }
 
@@ -186,15 +192,22 @@
   }
 
   .list-card {
-    background: var(--bg-surface);
+    background: var(--surface-panel-cold);
     border-radius: var(--radius-md);
     padding: var(--space-card-padding);
     border: 1px solid var(--border-dim);
+    clip-path: var(--panel-cut);
+    box-shadow: var(--panel-shadow);
     display: flex;
     flex-direction: column;
     gap: var(--space-stack-sm);
     height: auto;
     overflow: visible;
+  }
+
+  .list-card:hover {
+    border-color: rgba(111, 199, 255, 0.46);
+    box-shadow: var(--panel-shadow), var(--glow-cold);
   }
 
   .list-header {
@@ -232,6 +245,9 @@
   .list-toggle-indicator {
     font-size: var(--fs-tag);
     color: var(--text-muted);
+    font-family: var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     white-space: nowrap;
   }
 
@@ -266,10 +282,10 @@
     height: 1.8rem;
     border-radius: var(--radius-pill);
     border: 1px solid var(--border-dim);
-    background: var(--bg-overlay);
+    background: radial-gradient(circle at 50% 100%, rgba(255, 138, 61, 0.22), transparent 58%), var(--bg-overlay);
     font-family: var(--font-mono);
     font-size: var(--fs-tag);
-    color: var(--text-muted);
+    color: var(--ember-hot);
     flex-shrink: 0;
   }
 

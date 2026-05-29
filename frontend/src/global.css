@@ -1,35 +1,52 @@
 :root {
-  /* RAW TOKENS (HEX COLORS, PIXELS, REMS, ETC.) */
+  color-scheme: dark;
 
-  --grey-900: #1e1e2e; /* very dark grey */
-  --grey-800: #323F45;
-  /* --grey-800: #313244; */
-  --grey-700: #45475a;
+  /* =========================================================
+     HIVE CAPPUCCIN THEME TOKENS
+     Catppuccin-mocha softness + HiveMind cyberdeck energy.
+     ========================================================= */
+  --mocha-crust: #050812;
+  --mocha-mantle: #0b111b;
+  --mocha-base: #101925;
+  --mocha-surface-0: #1b2633;
+  --mocha-surface-1: #34465b;
+  --mocha-surface-2: #45475a;
+  --mocha-text: #f4f7fb;
+  --mocha-subtext: #9aa9ba;
+  --mocha-overlay: #617287;
 
-  --soft-grey: #a6adc8; /* muted text */
-  --offwhite:  #cdd6f4; /* main text */
+  --ember: #ff8a3d;
+  --ember-hot: #ffb067;
+  --ember-deep: #c94d1c;
+  --ember-glow: rgba(255, 122, 45, 0.52);
+  --frost: #27a8ff;
+  --frost-soft: #6fc7ff;
+  --frost-deep: #0a3e67;
+  --frost-glow: rgba(39, 168, 255, 0.36);
+  --pink-signal: #ff5dbb;
+  --green-sync: #38e6a4;
+  --danger: #ff4d5e;
+  --warning: #f9e2af;
 
-  --white: #FFFFFF;
-
-  --mauve: #B07BAC;
-	--sky: #2EC1DC;
-  --yellow:#E3D26F;
+  /* Backwards-compatible aliases used by existing components. */
+  --grey-900: var(--mocha-crust);
+  --grey-800: var(--mocha-base);
+  --grey-700: var(--mocha-surface-0);
+  --soft-grey: var(--mocha-subtext);
+  --offwhite: var(--mocha-text);
+  --white: #ffffff;
+  --mauve: var(--pink-signal);
+  --sky: var(--frost);
+  --yellow: var(--ember-hot);
   --lilac: #c9a6c6;
-	--sky-bright: #62D1E4;
-  --yellow-bright:#EBDF99;
-
-	--pink: #f5c2e7;
-	--red: #f38ba8;
-	--green: #a6e3a1;
-
-  --powder-blue:        #a6d8eb;
-  --powder-blue-bright: #89dceb;
-
-  --pastel-green:    #a6e3a1;
-  --pastel-yellow:   #f9e2af;
-  --pastel-lavender: #b4befe;
-  --pastel-pink:     #f5c2e7;
-  --pastel-red:      #f38ba8;
+  --sky-bright: var(--frost-soft);
+  --yellow-bright: var(--warning);
+  --pink: #f5c2e7;
+  --purple: #cba6f7;
+  --red: var(--danger);
+  --green: var(--green-sync);
+  --near-black: var(--mocha-crust);
+  --status-text-dark: var(--mocha-crust);
 
   /* --- RAW SPACING (PIXELS) --- */
   --space-0: 0;
@@ -43,14 +60,14 @@
   --space-8: 40px;
 
   /* --- RAW FONT SIZES (REMS) --- */
-  --font-10: 0.625rem; /* 10px */
-  --font-12: 0.75rem;  /* 12px */
-  --font-14: 0.875rem; /* 14px */
-  --font-16: 1rem;     /* 16px */
-  --font-18: 1.125rem; /* 18px */
-  --font-20: 1.25rem;  /* 20px */
-  --font-24: 1.5rem;   /* 24px */
-  --font-32: 2rem;     /* 32px */
+  --font-10: 0.625rem;
+  --font-12: 0.75rem;
+  --font-14: 0.875rem;
+  --font-16: 1rem;
+  --font-18: 1.125rem;
+  --font-20: 1.25rem;
+  --font-24: 1.5rem;
+  --font-32: 2rem;
 
   /* --- RAW RADII --- */
   --radius-0: 0;
@@ -64,85 +81,75 @@
   --lh-relaxed: 1.8;
 
   /* =========================================================
-     PALETTE LAYER (ABSTRACT UI ROLES)
+     SEMANTIC TOKENS
      ========================================================= */
+  --primary: var(--ember-hot);
+  --secondary: var(--frost-soft);
+  --tertiary: var(--warning);
+  --accent-primary: var(--pink-signal);
+  --accent-secondary: var(--frost-soft);
+  --accent-tertiary: var(--ember-hot);
+  --accent: var(--ember-hot);
+  --accent-hover: var(--frost-soft);
 
+  --bg-body: var(--mocha-crust);
+  --bg-surface: var(--mocha-base);
+  --bg-overlay: var(--mocha-surface-0);
+  --surface-panel: linear-gradient(180deg, rgba(13, 20, 31, 0.94), rgba(5, 9, 16, 0.96));
+  --surface-panel-warm: radial-gradient(circle at 0% 0%, rgba(255, 138, 61, 0.16), transparent 38%), var(--surface-panel);
+  --surface-panel-cold: radial-gradient(circle at 0% 0%, rgba(39, 168, 255, 0.14), transparent 40%), var(--surface-panel);
 
-  --primary:  var(--mauve);
-  --secondary:var(--sky);
-  --tertiary: var(--yellow);
+  --text-main: var(--mocha-text);
+  --text-muted: var(--mocha-subtext);
+  --text-dim: var(--mocha-overlay);
+  --border-dim: rgba(116, 174, 220, 0.24);
+  --border-hot: rgba(255, 138, 61, 0.72);
+  --shadow-black: rgba(0, 0, 0, 0.65);
+  --glow-cold: 0 0 24px rgba(39, 168, 255, 0.12);
+  --glow-hot: 0 0 28px rgba(255, 111, 36, 0.16);
+  --panel-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035), 0 18px 45px rgba(0, 0, 0, 0.45);
 
-  /* ACCENTS Roles */
-  --accent-primary:      var(--lilac);
-  --accent-secondary:    var(--sky-bright);
-  --accent-tertiary:    var(--yellow-bright);
-
-  --space-xxs: var(--space-1); /* 2px */
-  --space-xs:  var(--space-2); /* 4px */
-  --space-sm:  var(--space-3); /* 8px */
-  --space-md:  var(--space-5); /* 16px */
-  --space-lg:  var(--space-7); /* 32px */
-  --space-xl:  var(--space-8); /* 40px */
-
-  --font-xs:   var(--font-12);
-  --font-sm:   var(--font-14);
-  --font-md:   var(--font-16);
-  --font-lg:   var(--font-20);
-  --font-xl:   var(--font-24);
-  --font-xxl:  var(--font-32);
-
-  /* =========================================================
-     SEMANTIC TOKENS (USED IN COMPONENTS)
-     ========================================================= */
-  --bg-body:    var(--grey-900);
-  --bg-surface: var(--grey-800);
-  --bg-overlay: var(--grey-700);
-
-  /* TEXT */
-  --text-main:  var(--offwhite);
-  --text-muted: var(--soft-grey);
-
-  /* ACCENTS */
-  --accent:       var(--accent-secondary);
-  --accent-hover: var(--accent-secondary);
-
-  /* BORDERS */
-  --border-dim: var(--grey-700);
-
-  /* RADIUS (GLOBAL DEFAULTS) */
-  --radius-sm:   var(--radius-1);
-  --radius-md:   var(--radius-2);
+  --radius-sm: var(--radius-1);
+  --radius-md: var(--radius-2);
   --radius-pill: var(--radius-3);
-  --radius:      var(--radius-md);
+  --radius: var(--radius-md);
+  --panel-cut: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
 
-  /* TYPOGRAPHY: SEMANTIC FONT SIZES */
-  --fs-body:       var(--font-md);
+  --font-body: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: Rajdhani, Orbitron, Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-code: Menlo, Consolas, monospace;
+  --font-xs: var(--font-12);
+  --font-sm: var(--font-14);
+  --font-md: var(--font-16);
+  --font-lg: var(--font-20);
+  --font-xl: var(--font-24);
+  --font-xxl: var(--font-32);
+  --fs-body: var(--font-md);
   --fs-body-small: var(--font-sm);
-  --fs-tag:        var(--font-xs);
-  --fs-button:     var(--font-sm);
-  --fs-h1:         var(--font-xxl);
-  --fs-h2:         var(--font-xl);
-  --fs-h3:         var(--font-lg);
-  --fs-h4:         var(--font-md);
+  --fs-tag: var(--font-xs);
+  --fs-button: var(--font-sm);
+  --fs-h1: var(--font-xxl);
+  --fs-h2: var(--font-xl);
+  --fs-h3: var(--font-lg);
+  --fs-h4: var(--font-md);
   --fs-card-title: var(--font-lg);
+  --lh-body: var(--lh-normal);
+  --lh-heading: var(--lh-tight);
 
-  /* TYPOGRAPHY: FONTS & LINE HEIGHTS */
-  --font-body: system-ui, -apple-system, sans-serif;
-  --font-mono: 'Menlo', 'Consolas', monospace;
-
-  --lh-body:var(--lh-normal);
-  --lh-heading:var(--lh-tight);
-
-  /* SPACING: SEMANTIC TOKENS */
-  --space-page-gutter:    var(--space-lg);
-  --space-section-y:      var(--space-xl);
-  --space-card-padding:   var(--space-md);
-  --space-card-gap:       var(--space-sm);
-  --space-stack-sm:       var(--space-sm);
-  --space-stack-md:       var(--space-md);
-  --space-inline-gap-sm:  var(--space-xs);
-  --space-inline-gap-md:  var(--space-sm);
-
+  --space-xxs: var(--space-1);
+  --space-xs: var(--space-2);
+  --space-sm: var(--space-3);
+  --space-md: var(--space-5);
+  --space-lg: var(--space-7);
+  --space-xl: var(--space-8);
+  --space-page-gutter: var(--space-lg);
+  --space-section-y: var(--space-xl);
+  --space-card-padding: var(--space-md);
+  --space-card-gap: var(--space-sm);
+  --space-stack-sm: var(--space-sm);
+  --space-stack-md: var(--space-md);
+  --space-inline-gap-sm: var(--space-xs);
+  --space-inline-gap-md: var(--space-sm);
 }
 
 /* =========================================================
@@ -155,15 +162,44 @@
 
 body {
   margin: 0;
-  background-color: var(--bg-body);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(255, 93, 187, 0.11), transparent 28%),
+    radial-gradient(circle at 86% 10%, rgba(255, 138, 61, 0.14), transparent 30%),
+    radial-gradient(circle at 74% 92%, rgba(39, 168, 255, 0.12), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.028), transparent 24%),
+    var(--bg-body);
   color: var(--text-main);
   font-family: var(--font-body);
   font-size: var(--fs-body);
   line-height: var(--lh-body);
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 84px),
+    repeating-linear-gradient(0deg, rgba(39, 168, 255, 0.018) 0 1px, transparent 1px 72px);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 85%);
+}
+
+::selection {
+  background: rgba(255, 138, 61, 0.35);
+  color: var(--text-main);
+}
+
+:focus-visible {
+  outline: 2px solid var(--frost-soft);
+  outline-offset: 3px;
+}
+
 /* Global layout helper (optional; remove if not needed) */
 .main-content {
+  position: relative;
   padding-inline: var(--space-page-gutter);
   padding-block:  var(--space-section-y);
 }
@@ -172,11 +208,13 @@ body {
 a {
   color: var(--tertiary);
   text-decoration: none;
-  transition: color 0.2s;
+  text-shadow: 0 0 10px rgba(255, 176, 103, 0.14);
+  transition: color 0.2s, text-shadow 0.2s;
 }
 
 a:hover {
-  color: var(--accent-tertiary);
+  color: var(--accent-hover);
+  text-shadow: 0 0 14px var(--frost-glow);
   text-decoration: underline;
 }
 
@@ -188,12 +226,14 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: var(--fs-h1);
-  color: var(--primary);               /* primary accent */
+  color: var(--primary);
+  text-shadow: 0 0 18px rgba(255, 138, 61, 0.22);
 }
 
 h2 {
   font-size: var(--fs-h2);
-  color: var(--secondary);             /* strong but not neon */
+  color: var(--secondary);
+  text-shadow: 0 0 14px rgba(39, 168, 255, 0.16);
 }
 
 h3 {
@@ -204,4 +244,9 @@ h3 {
 h4, h5, h6 {
   font-size: var(--fs-h4);
   color: var(--text-muted);           /* subtle section labels */
+}
+
+code,
+pre {
+  font-family: var(--font-code);
 }
