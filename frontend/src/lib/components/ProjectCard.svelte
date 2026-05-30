@@ -36,7 +36,7 @@
     ['in-progress']: "status--inprogress",
     ['todo']: "status--todo",
     ['blocked']: "status--blocked",
-    ['urgent']: "status--urgent"
+    ['urgent']: "status--urgent",
   };
 
   const statusClass = $derived(statusClassMap[statusType]);

@@ -14,12 +14,12 @@
     {
       label: 'Instagram',
       href: 'https://www.instagram.com/noswadian/?utm_source=ig_embed&utm_campaign=loading',
-      hint: 'Life & visuals'
+      hint: 'I\'m an Influencer?'
     },
     {
       label: 'TikTok',
       href: 'https://www.tiktok.com/@noswadian',
-      hint: "Influencer?"
+      hint: "Modern Day News"
     },
     {
       label: 'Goodreads',

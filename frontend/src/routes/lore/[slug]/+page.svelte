@@ -51,9 +51,6 @@
 
 <main class="lore">
   <article class="lore-article">
-    <p class="lore-source-label">Pulled from Jamal Arcana</p>
-    <h1 class="lore-title">{data.source.title}</h1>
-
     {#if loading}
       <p class="lore-muted">Loading lore from Jamal Arcana...</p>
     {:else if loadError}

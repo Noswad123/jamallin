@@ -8,14 +8,26 @@
     <p class="about-subheading">I'm Jamal.</p>
 
     <p class="about-subtitle">
-      At my core, I'm a curious problem solver who enjoys connecting with people. I love learning,
-      experimenting, and finding meaning in the small intersections of life. I explore, I adapt, and I grow —
-      especially when I’m surrounded by people who bring out the best in me.
+    I’m currently a software developer, but I’ve taken a few interesting turns getting here — bartender, server, teacher, tutor, and even non-profit founder. I’ve always been drawn to new experiences, useful work, and the kind of problems that make time disappear.
     </p>
   </section>
 
+  <section class="about-more">
+    <p class="about-subheading">I love thinking deeply.</p>
+  <p class="about-subtitle">
+   I’ve always liked questions that seem simple until you sit with them for a while. Number theory does that for me — tiny rules, strange patterns, and ideas that feel almost playful once they click. I get a similar feeling from wondering why people find things funny: how timing, surprise, language, and shared context can turn a normal thought into a joke. I think that’s part of why I’m drawn to both serious ideas and unserious moments. They’re often closer together than they look.
+  </p>
+  </section>
+
+  <section class="about-more">
+    <p class="about-subheading">I also enjoy a bunch of other things.</p>
+  <p class="about-subtitle">
+    I’m usually traveling with my wife, goofing around with friends, playing disc golf, or listening to music. I’m also working toward my private pilot’s license, partly to open up new ways to travel and partly because learning to fly sounds like exactly the right amount of thrilling.
+  </p>
+  </section>
+
   <section class="about-social">
-    <p class="about-subheading">Find me around the web</p>
+    <p class="about-subheading">Find me around the web.</p>
     <SocialLinks />
   </section>
 </main>
@@ -45,6 +57,13 @@
     color: var(--text-muted);
     font-size: var(--fs-body);
     line-height: var(--lh-relaxed);
+  }
+
+  .about-more {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-stack-sm);
+    max-width: 60ch;
   }
 
   .about-social {

@@ -1,8 +1,8 @@
 [
   {
     "title": "Personal Site",
-    "description": "The website you are looking at right now. I wanted to test drive Svelte.",
-    "status": "done-ish",
+    "description": "The website you are looking at right now.",
+    "status": "Done",
     "statusType": "done",
     "githubUrl": "https://github.com/Noswad123/jamallin",
     "techStack": ["Svelte", "CSS", "Python"]
@@ -11,7 +11,7 @@
     "title": "Coven",
     "status":"Done",
     "statusType": "done",
-    "description": "Multi agent tool",
+    "description": "Interact with multiple agents in Tmux",
     "githubUrl": "https://github.com/Noswad123/coven",
     "techStack": ["bash", "Python"]
   },
@@ -19,7 +19,7 @@
     "title": "Mind Weaver",
     "status":"Done",
     "statusType": "done",
-    "description": "Notes companion software. Integrations with Neorg and neovim to make your notes queriable.",
+    "description": "Notes companion software.",
     "githubUrl": "https://github.com/Noswad123/mind-weaver",
     "techStack": ["Python", "SQLITE", "Go"]
   },
@@ -58,7 +58,7 @@
   {
     "title": "Sagebound",
     "status":"Not started",
-    "statusType": "blocked",
+    "statusType": "todo",
     "description": "An app to help mentors and mentees connect",
     "githubUrl": "https://github.com/Noswad123/sagebound",
     "techStack": ["IDK"]
@@ -67,7 +67,7 @@
     "title": "Top 5",
     "description": "A fun social site to debate the serious and innane.",
     "status": "Not Started",
-    "statusType": "blocked",
+    "statusType": "todo",
     "githubUrl": "https://github.com/Noswad123/top5",
     "techStack": ["IDK"]
   },
@@ -82,7 +82,7 @@
   {
     "title": "Mimic",
     "status":"Not Started",
-    "statusType": "urgent",
+    "statusType": "todo",
     "description": "An application for users to play around with different HTML/CSS components and layouts.",
     "githubUrl": "https://github.com/Noswad123/mimic",
     "techStack": ["Svelte", "CSS"]
@@ -90,7 +90,7 @@
   {
     "title": "Lasoundra",
     "status":"Not Started",
-    "statusType": "urgent",
+    "statusType": "todo",
     "description": "Experiment with Music theory programatically",
     "githubUrl": "https://github.com/Noswad123/lasoundra",
     "techStack": ["Python"]
