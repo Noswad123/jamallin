@@ -34,8 +34,18 @@
   let projectListOpen = true;
 
   onMount(() => {
-    if (defaultProject) void selectProject(defaultProject, { collapseList: false });
+    const requestedProject = getProjectFromUrl();
+    const initialProject = requestedProject ?? defaultProject;
+
+    if (initialProject) void selectProject(initialProject, { collapseList: false });
   });
+
+  function getProjectFromUrl(): Project | null {
+    const slug = new URLSearchParams(window.location.search).get('project');
+    if (!slug) return null;
+
+    return data.projects.find((project) => getProjectLoreSlug(project) === slug) ?? null;
+  }
 
   function getRawReadmeUrl(githubUrl: string): string | null {
     try {
