@@ -6,22 +6,59 @@ export type LoreProject = {
 export type LoreSource = {
   slug: string;
   title: string;
+  sourcePath: string;
   sourceMarkdownUrl: string;
   sourceWebUrl: string;
-  sourceWebBaseUrl: string;
+  sourceWebRootUrl: string;
+  sourceRawRootUrl: string;
 };
 
 const jamalArcanaRawBase = 'https://raw.githubusercontent.com/Noswad123/jamal-arcana/HEAD';
 const jamalArcanaWebBase = 'https://github.com/Noswad123/jamal-arcana/blob/main';
 
+const knownLoreSlugs = [
+  'aerospace',
+  'celestial-loom',
+  'coven',
+  'djinn',
+  'errandhall',
+  'foodie',
+  'grimmoire',
+  'hivemind',
+  'ideomancer',
+  'lasoundra',
+  'mimic',
+  'mind-weaver',
+  'opencode',
+  'polyglot',
+  'sagebond',
+  'tmux',
+  'top-five',
+  'twin-loci',
+  'waystone',
+  'wisp'
+];
+
 export function getLoreSource(slug: string): LoreSource {
+  const sourcePath = `docs/lore/${slug}.md`;
+
   return {
     slug,
     title: titleFromSlug(slug),
-    sourceMarkdownUrl: `${jamalArcanaRawBase}/docs/lore/${slug}.md`,
-    sourceWebUrl: `${jamalArcanaWebBase}/docs/lore/${slug}.md`,
-    sourceWebBaseUrl: `${jamalArcanaWebBase}/docs/lore/`
+    sourcePath,
+    sourceMarkdownUrl: `${jamalArcanaRawBase}/${sourcePath}`,
+    sourceWebUrl: `${jamalArcanaWebBase}/${sourcePath}`,
+    sourceWebRootUrl: `${jamalArcanaWebBase}/`,
+    sourceRawRootUrl: `${jamalArcanaRawBase}/`
   };
+}
+
+export function getKnownLoreSlugs(): string[] {
+  return knownLoreSlugs;
+}
+
+export function isKnownLoreSlug(slug: string): boolean {
+  return knownLoreSlugs.includes(slug);
 }
 
 export function getProjectLoreSlug(project: LoreProject): string | null {
