@@ -1,3 +1,17 @@
+# Frontend build stage
+FROM node:18-alpine AS frontend
+
+WORKDIR /app/frontend
+
+# Copy frontend source and install dependencies
+COPY frontend/package.json frontend/package-lock.json ./
+RUN npm install
+COPY frontend/ ./
+
+# Build the frontend
+RUN npm run build
+
+# Final stage
 FROM python:3.12-slim AS backend
 
 WORKDIR /app
@@ -13,7 +27,7 @@ COPY main.py .
 COPY static ./static
 
 # Copy built Svelte frontend into static directory
-COPY frontend/build ./static
+COPY --from=frontend /app/frontend/build ./static
 
 # Cloud Run port
 ENV PORT=8080
