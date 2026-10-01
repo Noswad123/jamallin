@@ -8,60 +8,93 @@
     "techStack": ["Svelte", "CSS", "Python"]
   },
   {
+    "title": "Jamal Arcana",
+    "status": "Done-ish",
+    "statusType": "done",
+    "description": "A fantasy-inspired ecosystem of local-first tools for navigation, workflow summoning, and knowledge craft.",
+    "githubUrl": "https://github.com/Noswad123/jamal-arcana",
+    "loreSlug": "jamal-arcana",
+    "techStack": ["Bash", "CLI", "Documentation"]
+  },
+  {
     "title": "Coven",
-    "status":"Done",
+    "status": "Done",
     "statusType": "done",
     "description": "Interact with multiple agents in Tmux",
     "githubUrl": "https://github.com/Noswad123/coven",
     "techStack": ["bash", "Python"]
   },
   {
+    "title": "Djinn",
+    "statusType": "done",
+    "status": "Done",
+    "description": "Discover tagged shell and Lua aliases, functions, and snippets, then jump to their source.",
+    "githubUrl": "https://github.com/Noswad123/djinn",
+    "techStack": ["CLI", "TUI", "Shell", "Lua"]
+  },
+  {
     "title": "Mind Weaver",
-    "status":"Done",
+    "status": "Done",
     "statusType": "done",
     "description": "Notes companion software.",
     "githubUrl": "https://github.com/Noswad123/mind-weaver",
     "techStack": ["Python", "SQLITE", "Go"]
   },
   {
-    "title": "Jamal Arcana",
-    "status": "Done-ish",
+    "title": "Waystone",
+    "status": "Done",
     "statusType": "done",
-    "description": "A fantasy-inspired ecosystem of local-first tools for navigation, workflow summoning, and knowledge craft.",
-    "githubUrl": "https://github.com/Noswad123/jamal-arcana",
-    "techStack": ["Bash", "CLI", "Documentation"]
+    "description": "Store paths to recall them later.",
+    "githubUrl": "https://github.com/Noswad123/waystone",
+    "techStack": ["bash", "CLI"]
+  },
+  {
+    "title": "Wisp",
+    "status": "Done",
+    "statusType": "done",
+    "description": "Float the results of shell commands in a temporary terminal window.",
+    "githubUrl": "https://github.com/Noswad123/wisp",
+    "techStack": ["bash", "CLI", "AeroSpace"]
+  },
+  {
+    "title": "Wyrm",
+    "status": "Dev",
+    "statusType": "in-progress",
+    "description": "A terminal file manager for browsing, previewing, and managing the local filesystem hoard.",
+    "githubUrl": "https://github.com/Noswad123/wyrm",
+    "techStack": ["CLI", "TUI", "Go"]
   },
   {
     "title": "Foodie",
-    "status":"Not Started",
-    "statusType": "blocked",
-    "description": "Recipe book and kitchen inventory app",
+    "status": "WIP",
+    "statusType": "in-progress",
+    "description": "Recipe book and kitchen inventory app.",
     "githubUrl": "https://github.com/Noswad123/foodie",
-    "techStack": ["IDK"]
+    "techStack": ["TBD"]
   },
   {
     "title": "Ideomancer",
     "status": "Ideation",
     "statusType": "in-progress",
-    "description": "Ambitious project to create software to help you create software",
+    "description": "Ambitious project to create software to help you create software.",
     "githubUrl": "https://github.com/Noswad123/ideomancer",
     "techStack": ["Go"]
   },
   {
     "title": "Errandhall",
-    "status":"Not Started",
+    "status": "Not Started",
     "statusType": "blocked",
     "description": "An app to manage the fulfillment of oddjobs.",
     "githubUrl": "https://github.com/Noswad123/errandhall",
-    "techStack": ["IDK"]
+    "techStack": ["TBD"]
   },
   {
-    "title": "Sagebound",
-    "status":"Not started",
+    "title": "Sagebond",
+    "status": "Not Started",
     "statusType": "todo",
     "description": "An app to help mentors and mentees connect",
-    "githubUrl": "https://github.com/Noswad123/sagebound",
-    "techStack": ["IDK"]
+    "githubUrl": "https://github.com/Noswad123/sagebond",
+    "techStack": ["TBD"]
   },
   {
     "title": "Top 5",
@@ -69,19 +102,20 @@
     "status": "Not Started",
     "statusType": "todo",
     "githubUrl": "https://github.com/Noswad123/top5",
-    "techStack": ["IDK"]
+    "loreSlug": "top-five",
+    "techStack": ["TBD"]
   },
   {
     "title": "Polyglot",
-    "status":"WIP",
+    "status": "WIP",
     "statusType": "in-progress",
     "description": "A repo to help you learn, compare, and practice programming languages.",
     "githubUrl": "https://github.com/Noswad123/polyglot",
-    "techStack": ["IDK"]
+    "techStack": ["Python", "JavaScript", "Go", "Rust", "Lua"]
   },
   {
     "title": "Mimic",
-    "status":"Not Started",
+    "status": "Not Started",
     "statusType": "todo",
     "description": "An application for users to play around with different HTML/CSS components and layouts.",
     "githubUrl": "https://github.com/Noswad123/mimic",
@@ -89,26 +123,26 @@
   },
   {
     "title": "Lasoundra",
-    "status":"Not Started",
+    "status": "Not Started",
     "statusType": "todo",
     "description": "Experiment with Music theory programatically",
     "githubUrl": "https://github.com/Noswad123/lasoundra",
     "techStack": ["Python"]
   },
   {
-    "title": "Wisp",
-    "status":"Done",
-    "statusType": "done",
-    "description": "Gives you the ability to float the results of shell command",
-    "githubUrl": "https://github.com/Noswad123/wisp",
-    "techStack": ["bash"]
+    "title": "Kitsune",
+    "status": "WIP",
+    "statusType": "in-progress",
+    "description": "A multiplexer companion for named, composable working-session kits.",
+    "loreSlug": "kitsune",
+    "techStack": ["CLI", "TUI", "Tmux"]
   },
   {
-    "title": "Waystone",
-    "status":"Done",
-    "statusType": "done",
-    "description": "Store paths to recall them later",
-    "githubUrl": "https://github.com/Noswad123/waystone",
-    "techStack": ["bash"]
+    "title": "Hexware",
+    "status": "Designing",
+    "statusType": "in-progress",
+    "description": "A shared visual theme language for Jamal Arcana tools and interfaces.",
+    "loreSlug": "hexware",
+    "techStack": ["Design Tokens", "CSS", "Terminal", "SwiftUI"]
   }
 ]

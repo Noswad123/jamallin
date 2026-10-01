@@ -9,7 +9,8 @@
     status: string;
     statusType: string;
     techStack: string[];
-    githubUrl: string;
+    githubUrl?: string;
+    loreSlug?: string;
   };
 
   export let data: { projects: Project[] };
@@ -47,7 +48,9 @@
     return data.projects.find((project) => getProjectLoreSlug(project) === slug) ?? null;
   }
 
-  function getRawReadmeUrl(githubUrl: string): string | null {
+  function getRawReadmeUrl(githubUrl?: string): string | null {
+    if (!githubUrl) return null;
+
     try {
       const url = new URL(githubUrl);
       const [_, user, repo] = url.pathname.split('/');
@@ -84,11 +87,11 @@
     if (options.collapseList ?? true) projectListOpen = false;
     readmeHtml = null;
     readmeError = null;
+    loadingReadme = false;
     void loadProjectLoreSource(project);
 
     const rawReadmeUrl = getRawReadmeUrl(project.githubUrl);
     if (!rawReadmeUrl) {
-      readmeError = 'No GitHub README URL could be generated for this project.';
       return;
     }
 
@@ -194,7 +197,9 @@
         {/if}
 
         <div class="project-detail__links">
-          <a href={selectedProject.githubUrl} target="_blank" rel="noreferrer">GitHub repo</a>
+          {#if selectedProject.githubUrl}
+            <a href={selectedProject.githubUrl} target="_blank" rel="noreferrer">GitHub repo</a>
+          {/if}
           {#if selectedLoreSource}
             <a class="project-detail__lore-link" href={`/lore/${selectedLoreSource.slug}`}>lore?</a>
           {/if}
@@ -210,7 +215,11 @@
               {@html readmeHtml}
             </div>
           {:else}
-            <p class="project-readme__empty">No README available.</p>
+            <p class="project-readme__empty">
+              {selectedProject.githubUrl
+                ? 'No README available.'
+                : 'No standalone README configured for this entry yet.'}
+            </p>
           {/if}
         </div>
       {:else}

@@ -132,7 +132,7 @@
     <p class="lore-source">
       Source:
       <a href={data.source.sourceWebUrl} target="_blank" rel="noreferrer">
-        Noswad123/jamal-arcana docs/lore/{data.source.slug}.md
+        Noswad123/jamal-arcana {data.source.sourcePath}
       </a>
     </p>
   </article>

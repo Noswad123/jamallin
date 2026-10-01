@@ -1,6 +1,7 @@
 export type LoreProject = {
   title: string;
-  githubUrl: string;
+  githubUrl?: string;
+  loreSlug?: string;
 };
 
 export type LoreSource = {
@@ -24,8 +25,11 @@ const knownLoreSlugs = [
   'errandhall',
   'foodie',
   'grimmoire',
+  'hexware',
   'hivemind',
   'ideomancer',
+  'jamal-arcana',
+  'kitsune',
   'lasoundra',
   'mimic',
   'mind-weaver',
@@ -36,11 +40,16 @@ const knownLoreSlugs = [
   'top-five',
   'twin-loci',
   'waystone',
-  'wisp'
+  'wisp',
+  'wyrm'
 ];
 
+const loreSourcePathBySlug: Record<string, string> = {
+  'jamal-arcana': 'docs/lore/canon/jamal-arcana.md'
+};
+
 export function getLoreSource(slug: string): LoreSource {
-  const sourcePath = `docs/lore/${slug}.md`;
+  const sourcePath = loreSourcePathBySlug[slug] ?? `docs/lore/${slug}.md`;
 
   return {
     slug,
@@ -62,6 +71,10 @@ export function isKnownLoreSlug(slug: string): boolean {
 }
 
 export function getProjectLoreSlug(project: LoreProject): string | null {
+  if (project.loreSlug) return project.loreSlug;
+
+  if (!project.githubUrl) return slugify(project.title);
+
   try {
     const url = new URL(project.githubUrl);
     const repo = url.pathname.split('/').filter(Boolean).at(1)?.replace(/\.git$/, '');
