@@ -39,6 +39,7 @@ next-env.d.ts
 
 .genkit/*
 .env*
+gha-creds-*.json
 __pycache__
 .venv
 
