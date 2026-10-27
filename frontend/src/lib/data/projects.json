@@ -17,10 +17,18 @@
     "techStack": ["Bash", "CLI", "Documentation"]
   },
   {
+    "title": "Arcana",
+    "status": "Dev",
+    "statusType": "in-progress",
+    "description": "Install, update, and check the Jamal Arcana tool ecosystem through a single Homebrew command.",
+    "githubUrl": "https://github.com/Noswad123/homebrew-jamal-arcana",
+    "techStack": ["CLI", "Ruby", "Homebrew"]
+  },
+  {
     "title": "Coven",
     "status": "Done",
     "statusType": "done",
-    "description": "Interact with multiple agents in Tmux",
+    "description": "Create and operate magic-themed multi-agent workspaces backed by Kitsune.",
     "githubUrl": "https://github.com/Noswad123/coven",
     "techStack": ["bash", "Python"]
   },
@@ -28,17 +36,33 @@
     "title": "Djinn",
     "statusType": "done",
     "status": "Done",
-    "description": "Discover tagged shell and Lua aliases, functions, and snippets, then jump to their source.",
+    "description": "A local-first companion for OpenCode and other AI coding agents, with tagged shell and Lua tool discovery.",
     "githubUrl": "https://github.com/Noswad123/djinn",
-    "techStack": ["CLI", "TUI", "Shell", "Lua"]
+    "techStack": ["CLI", "TUI", "TypeScript", "Shell", "Lua"]
   },
   {
     "title": "Mind Weaver",
     "status": "Done",
     "statusType": "done",
-    "description": "Notes companion software.",
+    "description": "A local-first notes and todos CLI with Markdown as the source of truth and SQLite-backed projections.",
     "githubUrl": "https://github.com/Noswad123/mind-weaver",
-    "techStack": ["Python", "SQLITE", "Go"]
+    "techStack": ["CLI", "Rust", "Go", "SQLite", "Markdown"]
+  },
+  {
+    "title": "Mind Weaver for macOS",
+    "status": "Prototype",
+    "statusType": "in-progress",
+    "description": "A native macOS shell around the mw engine for browsing Markdown notes, managing todos, and exploring the note graph.",
+    "githubUrl": "https://github.com/Noswad123/mind-weaver-swift",
+    "techStack": ["Swift", "SwiftUI", "macOS"]
+  },
+  {
+    "title": "Numen",
+    "status": "Preview",
+    "statusType": "in-progress",
+    "description": "An animated desktop familiar with a standalone Rust rendering preview for macOS; tool-driven activity updates are planned.",
+    "githubUrl": "https://github.com/Noswad123/numen",
+    "techStack": ["Rust", "Desktop", "macOS"]
   },
   {
     "title": "Waystone",
@@ -63,6 +87,14 @@
     "description": "A terminal file manager for browsing, previewing, and managing the local filesystem hoard.",
     "githubUrl": "https://github.com/Noswad123/wyrm",
     "techStack": ["CLI", "TUI", "Go"]
+  },
+  {
+    "title": "Yggdrasil",
+    "status": "Preview",
+    "statusType": "in-progress",
+    "description": "Share selected private files and folders across Git worktrees, with local Git-backed snapshots and opt-in attachment hooks via the ygg CLI.",
+    "githubUrl": "https://github.com/Noswad123/yggdrasil",
+    "techStack": ["CLI", "Go", "Git"]
   },
   {
     "title": "Foodie",
@@ -134,8 +166,9 @@
     "status": "WIP",
     "statusType": "in-progress",
     "description": "A multiplexer companion for named, composable working-session kits.",
+    "githubUrl": "https://github.com/Noswad123/kitsune",
     "loreSlug": "kitsune",
-    "techStack": ["CLI", "TUI", "Tmux"]
+    "techStack": ["CLI", "TUI", "Rust", "Zig", "Tmux"]
   },
   {
     "title": "Hexware",
